@@ -753,6 +753,14 @@
             transform: scale(1.05);
         }
 
+        .grid-card-title,
+        .grid-card-text {
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
         #card-izakaya::before {
             background-image: url('images/concept1.png');
         }
@@ -903,16 +911,16 @@
             </div>
         </div>
         <div class="split-right"
-            style="width: 40%; display: flex; flex-direction: column; gap: 20px; justify-content: center;">
+            style="width: 40%; display: flex; flex-direction: column; gap: 15px; justify-content: center;">
             <div>
                 <img src="images/stage_idea_immersive.png"
-                    style="width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    style="width: 100%; height: 220px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div style="font-size: 11px; margin-top: 8px; opacity: 0.7; letter-spacing: 0.05em;">▲ 居酒屋セットでの没入型公演イメージ
                 </div>
             </div>
             <div>
                 <img src="images/stage_idea_voting.png"
-                    style="width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    style="width: 100%; height: 220px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div style="font-size: 11px; margin-top: 8px; opacity: 0.7; letter-spacing: 0.05em;">▲ 観客参加型の投票演出イメージ
                 </div>
             </div>
@@ -1473,6 +1481,144 @@
         </div>
     </div>
 
+    <style>
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+                aspect-ratio: auto;
+                min-height: 100vh;
+                margin-bottom: 40px;
+                height: auto;
+            }
+
+            .nav {
+                top: 20px;
+                left: 20px;
+            }
+
+            .title-jp {
+                font-size: 32px;
+            }
+
+            .slide-split {
+                flex-direction: column;
+                padding-top: 60px;
+            }
+
+            .split-left,
+            .split-right {
+                width: 100% !important;
+                padding: 0;
+                border-right: none;
+                margin-bottom: 30px;
+            }
+
+            .big-number {
+                font-size: 80px;
+            }
+
+            .big-number-label {
+                font-size: 12px;
+            }
+
+            .slide-columns {
+                padding-top: 60px;
+            }
+
+            .columns-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .script-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .script-info {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+
+            .script-cast-table {
+                width: 100%;
+            }
+
+            .timeline-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 40px;
+            }
+
+            .timeline-item {
+                flex-direction: row;
+                text-align: left;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .timeline-date {
+                margin-bottom: 0;
+                min-width: 60px;
+            }
+
+            .compare-container {
+                flex-direction: column;
+            }
+
+            .compare-left,
+            .compare-right {
+                padding: 20px;
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .compare-right {
+                border-bottom: none;
+            }
+
+            .diagram-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .diagram-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+
+            .cast-container {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .cast-card {
+                width: calc(50% - 15px);
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Slide 06 Fixes for readability */
+        .grid-card-title,
+        .grid-card-text {
+            /* Ensure text sits above the overlay */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Ensure overlay is below text but above background image */
+        .grid-card::after {
+            z-index: 5;
+        }
+    </style>
 </body>
 
 </html>
