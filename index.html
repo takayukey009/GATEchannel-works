@@ -1540,9 +1540,13 @@
 
             .script-layout {
                 grid-template-columns: 1fr;
+                height: auto;
+                display: flex;
+                flex-direction: column;
             }
 
             .script-info {
+                width: 100%;
                 padding-right: 0;
                 border-right: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -1550,8 +1554,23 @@
                 padding-bottom: 20px;
             }
 
+            .script-content {
+                overflow-y: visible;
+                padding-right: 0;
+            }
+
+            .script-line {
+                font-size: 13px;
+            }
+
+            .script-speaker {
+                width: 45px;
+                font-size: 11px;
+            }
+
             .script-cast-table {
                 width: 100%;
+                font-size: 11px;
             }
 
             /* Slide 7: Timeline - Improved for Mobile */
