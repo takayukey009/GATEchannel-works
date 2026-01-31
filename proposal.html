@@ -1,0 +1,808 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS連動型演劇プロジェクト 企画書</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --base: #E9E9E9;
+            --text: #000000;
+            --text-light: #333333;
+            --accent: #000000;
+            --dark-bg: #0a0a0a;
+            --dark-text: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--base);
+            color: var(--text);
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1600px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto 20px;
+            padding: 60px 80px;
+            background: #fff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+            overflow: hidden;
+        }
+
+        .slide.dark {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .nav {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .slide.dark .nav {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Slide 1: Title Typography */
+        .slide-title {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .title-main {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .title-jp {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .title-sub {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin: 5px;
+        }
+
+        .badges {
+            margin-top: 40px;
+        }
+
+        /* Slide 2: Text + Data */
+        .slide-split {
+            flex-direction: row;
+            padding-top: 100px;
+        }
+
+        .split-left {
+            flex: 1;
+            padding-right: 60px;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .split-right {
+            flex: 1;
+            padding-left: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .big-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 140px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+
+        .big-number-label {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .body-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 2;
+        }
+
+        /* Slide 3: 3 Column Steps */
+        .slide-columns {
+            padding-top: 100px;
+        }
+
+        .columns-container {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .column-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 80px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .column-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .column-text {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-light);
+        }
+
+        /* Slide 4: Card Grid */
+        .slide-grid {
+            padding-top: 100px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .grid-card {
+            background: var(--base);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .grid-card-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .grid-card-text {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Slide 5: Timeline */
+        .slide-timeline {
+            padding-top: 100px;
+        }
+
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+
+        .timeline-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-desc {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-light);
+        }
+
+        /* Slide 6: Dark Diagram */
+        .slide-diagram {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .diagram-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .diagram-circle {
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .diagram-circle-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+        }
+
+        .diagram-circle-text {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .diagram-arrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Slide 7: Comparison */
+        .slide-compare {
+            flex-direction: row;
+            padding-top: 100px;
+        }
+
+        .compare-left,
+        .compare-right {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .compare-divider {
+            width: 4px;
+            background: var(--text);
+        }
+
+        .compare-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 30px;
+        }
+
+        .compare-list {
+            list-style: none;
+        }
+
+        .compare-list li {
+            font-size: 14px;
+            font-weight: 300;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Slide 8: Quote / Chat Style */
+        .slide-chat {
+            padding-top: 100px;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .chat-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .chat-speaker {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            width: 100px;
+            flex-shrink: 0;
+            text-align: right;
+            padding-top: 5px;
+        }
+
+        .chat-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.9;
+            flex: 1;
+            padding-left: 20px;
+            border-left: 2px solid var(--text);
+        }
+
+        /* Slide 9: List */
+        .slide-list {
+            padding-top: 100px;
+        }
+
+        .list-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+            flex: 1;
+        }
+
+        .list-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .list-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .list-value {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .slide {
+                box-shadow: none;
+                margin: 0;
+                page-break-inside: avoid;
+            }
+        }
+
+        @page {
+            size: 16in 9in;
+            margin: 0;
+        }
+
+        /* Cast Grid */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            flex: 1;
+            padding-top: 10px;
+            align-content: start;
+        }
+
+        .cast-card {
+            text-align: center;
+        }
+
+        .cast-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(20%);
+            margin-bottom: 8px;
+        }
+
+        .cast-name {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .cast-age {
+            font-size: 10px;
+            font-weight: 300;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title">
+        <div class="nav">01. COVER</div>
+        <div class="title-main">GATE CHANNEL & WORKS PRESENTS</div>
+        <div class="title-jp">SNS連動型演劇プロジェクト</div>
+        <div class="title-sub">「盗み聞き」体験で生まれる没入感と共感 — SNSから舞台へ</div>
+        <div class="badges">
+            <span class="badge">SHORT DRAMA</span>
+            <span class="badge">INSTAGRAM</span>
+            <span class="badge">TIKTOK</span>
+            <span class="badge">LIVE STAGE</span>
+        </div>
+    </div>
+
+    <!-- Slide 2: Market Data -->
+    <div class="slide slide-split">
+        <div class="nav">02. MARKET</div>
+        <div class="split-left">
+            <div class="section-title">Why Short Drama?</div>
+            <p class="body-text">
+                TikTok上半期トレンド大賞2024で「ショートドラマ」が大賞を受賞。<br><br>
+                Z世代の「タイパ」志向と共感を呼ぶストーリー性が人気の背景。<br><br>
+                2026年には国内市場1,530億円規模へ成長見込み。<br><br>
+                SNSでファンを獲得し、リアルイベントでマネタイズする流れが加速。
+            </p>
+        </div>
+        <div class="split-right">
+            <div class="big-number" style="font-size: 100px;">1,530億円</div>
+            <div class="big-number-label">2026年 国内市場規模予測（映画興行収入に匹敵）</div>
+            <div
+                style="margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.05); font-size: 13px; line-height: 1.8;">
+                <strong>🔥 Netflix参入決定</strong><br>
+                2026年後半、縦型動画フィードを本格導入予定
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Reference Channel -->
+    <div class="slide slide-columns">
+        <div class="nav">03. REFERENCE</div>
+        <div class="section-title" style="margin-bottom: 40px;">「あの卓が気になる」成功の要因分析</div>
+        <div class="columns-container">
+            <div class="column">
+                <div class="column-number">01</div>
+                <div class="column-title">普遍的な好奇心</div>
+                <div class="column-text">
+                    誰もがカフェや居酒屋で「隣の会話」に耳を傾けた経験がある。本来許されない「盗み聞き」を堂々とできる罪悪感と快楽。
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-number">02</div>
+                <div class="column-title">絶妙なトピック選び</div>
+                <div class="column-text">
+                    「足湯アンチか否か」「占いってどこまで信じる？」など、どうでもいいけど気になる話題。共感と反論が両立する。
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-number">03</div>
+                <div class="column-title">持続可能な制作体制</div>
+                <div class="column-text">
+                    ワンシチュエーション・固定カメラ・3人固定キャスト。話題さえ変えれば撮り溜め可能。週3投稿を実現。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Cast List -->
+    <div class="slide slide-grid">
+        <div class="nav">04. CAST</div>
+        <div class="section-title" style="margin-bottom: 20px;">キャスト候補一覧 — GATE所属タレント</div>
+        <div class="cast-grid">
+            <div class="cast-card">
+                <img src="images/五十嵐諒.jpeg" alt="五十嵐諒" class="cast-photo">
+                <div class="cast-name">五十嵐 諒</div>
+                <div class="cast-age">33歳（1992.6.15）</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/中塚智.jpg" alt="中塚智" class="cast-photo">
+                <div class="cast-name">中塚 智</div>
+                <div class="cast-age">27歳（1998.11.13）</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/谷口彩菜.jpg" alt="谷口彩菜" class="cast-photo">
+                <div class="cast-name">谷口 彩菜</div>
+                <div class="cast-age">26歳（1999.3.2）</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/吉川慶.jpeg" alt="吉川慶" class="cast-photo">
+                <div class="cast-name">吉川 慶</div>
+                <div class="cast-age">29歳</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/寺崎ひなjpeg.jpeg" alt="寺崎ひな" class="cast-photo">
+                <div class="cast-name">寺崎 ひな</div>
+                <div class="cast-age">22歳（2003.12.29）</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/田中希和.jpg" alt="田中希和" class="cast-photo">
+                <div class="cast-name">田中 希和</div>
+                <div class="cast-age">18歳</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/島田和奏.jpg" alt="島田和奏" class="cast-photo">
+                <div class="cast-name">島田 和奏</div>
+                <div class="cast-age">26歳</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/吉富千桜.jpg" alt="吉富千桜" class="cast-photo">
+                <div class="cast-name">吉富 千桜</div>
+                <div class="cast-age">23歳</div>
+            </div>
+            <div class="cast-card">
+                <img src="images/小久保裕紀.jpg" alt="小久保宏紀" class="cast-photo">
+                <div class="cast-name">小久保 宏紀</div>
+                <div class="cast-age">21歳（2004.4.5）</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Our Concept -->
+    <div class="slide slide-grid">
+        <div class="nav">05. CONCEPT</div>
+        <div class="section-title" style="margin-bottom: 30px;">GATEチャンネル＆ワークス — コンセプト案</div>
+        <div class="grid-container">
+            <div class="grid-card">
+                <div class="grid-card-title">LOCATION 1</div>
+                <div class="grid-card-text">居酒屋・バー<br>お客さんではなく、オーナー＆バイト視点で描く「来る人たち」の物語</div>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title">LOCATION 2</div>
+                <div class="grid-card-text">カフェ・喫茶店<br>人間観察が好きな主人公。イヤホンしてるけど音楽は聴いてない</div>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title">LOCATION 3</div>
+                <div class="grid-card-text">自動車教習所<br>年齢・職業・人生がバラバラの人たちが一時的に交錯する「新しい学校」</div>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title">LOCATION 4</div>
+                <div class="grid-card-text">シェアハウス<br>いろんな人が集まる場所を軸に、日常の断片を切り取る</div>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title">LOCATION 5</div>
+                <div class="grid-card-text">ホテルラウンジ<br>パパ活、マッチングアプリ、ビジネス交渉…様々な人生が交差</div>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title">UNIQUE POINT</div>
+                <div class="grid-card-text">「聞いてる人」の反応も見せる<br>2人が話してるのを、聞いてる人たちのリアクションで魅せる</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Timeline -->
+    <div class="slide slide-timeline">
+        <div class="nav">06. SCHEDULE</div>
+        <div class="section-title" style="margin-bottom: 30px;">ロードマップ</div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">02</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">2月下旬：初回撮影</div>
+                    <div class="timeline-desc">ロケーション確定、キャスト選定、テスト撮影実施。テーマ案を出し合い精査。</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">03</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">3月〜：本格運用開始</div>
+                    <div class="timeline-desc">週1回以上の投稿を目標にアカウント運用。撮り溜めで効率化。</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">06</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">6月頃：フォロワー1000人くらい目標？</div>
+                    <div class="timeline-desc">コメント・シェアを軸にファンコミュニティ形成。</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">09</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">9月以降：リアル舞台公演</div>
+                    <div class="timeline-desc">SNSで培った世界観をオフラインイベントで展開。箱の大きさはSNSドラマ次第？！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: SNS to Stage (Dark) -->
+    <div class="slide slide-diagram dark">
+        <div class="nav">07. CROSS-MEDIA</div>
+        <div class="section-title" style="margin-bottom: 60px; text-align: center;">SNS × 舞台 クロスメディア展開</div>
+        <div class="diagram-container">
+            <div class="diagram-circle">
+                <div class="diagram-circle-title">SNS</div>
+                <div class="diagram-circle-text">無料コンテンツ<br>ファン獲得<br>話題化</div>
+            </div>
+            <div class="diagram-arrow">→</div>
+            <div class="diagram-circle">
+                <div class="diagram-circle-title">COMMUNITY</div>
+                <div class="diagram-circle-text">コメント交流<br>テーマ募集<br>参加型</div>
+            </div>
+            <div class="diagram-arrow">→</div>
+            <div class="diagram-circle">
+                <div class="diagram-circle-title">LIVE STAGE</div>
+                <div class="diagram-circle-text">有料イベント<br>マネタイズ<br>コアファン育成</div>
+            </div>
+            <div class="diagram-arrow">→</div>
+            <div class="diagram-circle">
+                <div class="diagram-circle-title">IP展開</div>
+                <div class="diagram-circle-text">グッズ化<br>書籍化<br>コラボ</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Production Requirements -->
+    <div class="slide slide-compare">
+        <div class="nav">08. PRODUCTION</div>
+        <div class="compare-left">
+            <div class="compare-title">SNS撮影に必要なもの</div>
+            <ul class="compare-list">
+                <li>📍 ロケーション（居酒屋等に協力依頼）</li>
+                <li>🎬 キャスト3名程度（GATE所属タレント）</li>
+                <li>📷 カメラ1台（固定・ワンカット）</li>
+                <li>💬 テロップ（AI自動生成活用）</li>
+                <li>🎵 BGM・SE（音入れ程度）</li>
+                <li>💰 予算を抑えて持続可能に</li>
+            </ul>
+        </div>
+        <div class="compare-divider"></div>
+        <div class="compare-right">
+            <div class="compare-title">舞台公演に必要なもの（五十嵐君参考情報）</div>
+            <ul class="compare-list">
+                <li>🏠 劇場（下北沢スターダスト：土日2.5万円）</li>
+                <li>🎤 音響スタッフ（必須）</li>
+                <li>💡 照明スタッフ（簡易で可）</li>
+                <li>🎭 舞台監督（劇場によっては必須）</li>
+                <li>📽️ プロジェクションマッピング（美術代替）</li>
+                <li>👥 キャパ50-60人で収益化可能</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 8: Ideas from Meeting -->
+    <div class="slide slide-chat">
+        <div class="nav">09. IDEAS</div>
+        <div class="section-title" style="margin-bottom: 30px;">ブレストから生まれたアイデア</div>
+        <div class="chat-container">
+            <div class="chat-item">
+                <div class="chat-speaker">IDEA A</div>
+                <div class="chat-text">居酒屋のオーナー＆バイト視点で、来るお客さんの会話を「盗み聞き」する構成。お客さんベースだと「あの卓」と被るので、裏方視点で差別化。</div>
+            </div>
+            <div class="chat-item">
+                <div class="chat-speaker">IDEA B</div>
+                <div class="chat-text">自動車教習所という「人生が交錯する場所」。年齢も職業もバラバラの人たちが一時的に集まる新しいコミュニティ。ドラマがいくらでも生まれる。</div>
+            </div>
+            <div class="chat-item">
+                <div class="chat-speaker">IDEA C</div>
+                <div class="chat-text">ホテルラウンジで起きる様々な人間模様。パパ活、マッチングアプリ、ビジネス交渉…真剣な話とバカな話が同時進行する面白さ。</div>
+            </div>
+            <div class="chat-item">
+                <div class="chat-speaker">IDEA D</div>
+                <div class="chat-text">2人が話してるのを、「聞いてる人たち」のリアクションで見せる。役者が多いGATEならではの群像劇アプローチ。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Key Success Factors -->
+    <div class="slide slide-list">
+        <div class="nav">10. SUCCESS FACTORS</div>
+        <div class="section-title" style="margin-bottom: 40px;">成功のためのポイント</div>
+        <div class="list-container">
+            <div class="list-item">
+                <div class="list-label">FREQUENCY</div>
+                <div class="list-value">週1回以上の投稿頻度を維持。ファンが離れないように継続性を重視。</div>
+            </div>
+            <div class="list-item">
+                <div class="list-label">SIMPLICITY</div>
+                <div class="list-value">ワンシチュエーション・ワンカットで毎回迷わない。話題さえ変えればOK。</div>
+            </div>
+            <div class="list-item">
+                <div class="list-label">CAST</div>
+                <div class="list-value">演技力のあるGATEタレントを固定キャストに。3人が魅力的であることが絶対条件。</div>
+            </div>
+            <div class="list-item">
+                <div class="list-label">TOPIC</div>
+                <div class="list-value">熱量を持って話せるテーマ選び。出演者自身が話したいことを精査。</div>
+            </div>
+            <div class="list-item">
+                <div class="list-label">LOW COST</div>
+                <div class="list-value">予算を抑えることが持続の秘訣。居酒屋への協力依頼で無料ロケも可能。</div>
+            </div>
+            <div class="list-item">
+                <div class="list-label">BATCH SHOOTING</div>
+                <div class="list-value">1日で10本撮影も可能。撮り溜めで運用負荷を軽減。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Next Actions -->
+    <div class="slide slide-title dark">
+        <div class="nav">11. NEXT ACTIONS</div>
+        <div class="title-main" style="color: rgba(255,255,255,0.5);">FIRST STEPS</div>
+        <div class="title-jp" style="font-size: 36px; margin-bottom: 40px;">目指せ、フォロワー1万人</div>
+        <div class="body-text"
+            style="max-width: 800px; text-align: center; margin: 0 auto; color: rgba(255,255,255,0.8);">
+            <strong>① ロケーション選定</strong> — 協力してくれる居酒屋・カフェをリサーチ<br><br>
+            <strong>② キャスト決定</strong> — GATE所属の若手俳優を組み合わせを変えて<br><br>
+            <strong>③ テーマ募集</strong> — メンバーから「話したいこと」を出し合う<br><br>
+            <strong>④ テスト撮影</strong> — 2月下旬に1本目撮影<br><br>
+            <strong>⑤ アカウント開設</strong> — Instagram / TikTok / YouTube　どれがいいのかな・・・
+        </div>
+    </div>
+
+</body>
+
+</html>
