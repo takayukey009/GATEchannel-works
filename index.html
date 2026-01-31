@@ -883,7 +883,7 @@
     </div>
 
     <!-- Slide 9: Stage Ideas -->
-    <div class="slide slide-split">
+    <div class="slide slide-split" id="slide-stage">
         <div class="nav">09. STAGE IDEAS</div>
         <div class="split-left" style="width: 55%; padding-right: 20px;">
             <div class="section-title" style="margin-bottom: 20px;">舞台公演への展開アイデア</div>
@@ -1669,25 +1669,25 @@
                 line-height: 1.4;
             }
 
-            /* Images side-by-side on mobile */
-            .split-right {
+            /* Images side-by-side on mobile ONLY for Stage Slide */
+            #slide-stage .split-right {
                 flex-direction: row !important;
                 gap: 10px !important;
                 align-items: flex-start;
                 justify-content: space-between;
             }
 
-            .split-right>div {
+            #slide-stage .split-right>div {
                 flex: 1;
                 min-width: 0;
             }
 
-            .split-right img {
+            #slide-stage .split-right img {
                 height: 100px !important;
                 /* Smaller height for side-by-side */
             }
 
-            .split-right div div {
+            #slide-stage .split-right div div {
                 font-size: 9px !important;
                 line-height: 1.2;
             }
