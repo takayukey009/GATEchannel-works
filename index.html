@@ -1626,10 +1626,46 @@
                 object-fit: cover;
             }
 
-            /* Slide 9: Stage Ideas - Image Adjustment */
+            /* Slide 9: Stage Ideas - Mobile Optimization */
+            .list-container {
+                gap: 10px;
+            }
+
+            .list-item {
+                padding: 10px;
+            }
+
+            .list-label {
+                font-size: 10px;
+                margin-bottom: 2px;
+            }
+
+            .list-value {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            /* Images side-by-side on mobile */
+            .split-right {
+                flex-direction: row !important;
+                gap: 10px !important;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .split-right>div {
+                flex: 1;
+                min-width: 0;
+            }
+
             .split-right img {
-                height: 180px !important;
-                /* Smaller height for mobile */
+                height: 100px !important;
+                /* Smaller height for side-by-side */
+            }
+
+            .split-right div div {
+                font-size: 9px !important;
+                line-height: 1.2;
             }
         }
 
