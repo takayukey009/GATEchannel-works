@@ -411,11 +411,34 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px 80px;
             flex: 1;
+            counter-reset: list-num;
+            /* Initialize counter */
         }
 
         .list-item {
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding-bottom: 20px;
+            position: relative;
+            /* Context for absolute positioning */
+            z-index: 1;
+            counter-increment: list-num;
+            /* Increment counter */
+        }
+
+        /* Background Number Style */
+        .list-item::before {
+            content: counter(list-num, decimal-leading-zero);
+            position: absolute;
+            right: 0;
+            bottom: -15px;
+            font-family: 'Inter', sans-serif;
+            font-size: 80px;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.05);
+            /* Faint color */
+            z-index: -1;
+            line-height: 1;
+            pointer-events: none;
         }
 
         .list-label {
@@ -432,6 +455,9 @@
             font-size: 16px;
             font-weight: 400;
         }
+
+        /* Reset counter for Slide 9 specifically since it shares the class but might need separate counting if structure differs, 
+           but since structure is separate divs, the counter-reset on .list-container works per container. */
 
         /* Print Styles */
         @media print {
