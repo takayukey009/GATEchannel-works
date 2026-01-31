@@ -715,31 +715,94 @@
     </div>
 
     <!-- Slide 5: Our Concept -->
+    <style>
+        /* Concept Grid Image Styles */
+        .grid-card {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .grid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .grid-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .grid-card:hover::before {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        #card-izakaya::before {
+            background-image: url('images/concept1.png');
+        }
+
+        #card-cafe::before {
+            background-image: url('images/concept2.png');
+        }
+
+        #card-driving::before {
+            background-image: url('images/concept3.png');
+        }
+
+        #card-sharehouse::before {
+            background-image: url('images/concept4.png');
+        }
+
+        #card-lounge::before {
+            background-image: url('images/concept5.png');
+        }
+
+        #card-listening::before {
+            background-image: url('images/concept6.png');
+        }
+    </style>
+
     <div class="slide slide-grid">
         <div class="nav">06. CONCEPT</div>
         <div class="section-title" style="margin-bottom: 30px;">GATEチャンネル＆ワークス — コンセプト案</div>
         <div class="grid-container">
-            <div class="grid-card">
+            <div class="grid-card" id="card-izakaya">
                 <div class="grid-card-title">LOCATION 1</div>
                 <div class="grid-card-text">居酒屋・バー<br>お客さんではなく、オーナー＆バイト視点で描く「来る人たち」の物語</div>
             </div>
-            <div class="grid-card">
+            <div class="grid-card" id="card-cafe">
                 <div class="grid-card-title">LOCATION 2</div>
                 <div class="grid-card-text">カフェ・喫茶店<br>人間観察が好きな主人公。イヤホンしてるけど音楽は聴いてない</div>
             </div>
-            <div class="grid-card">
+            <div class="grid-card" id="card-driving">
                 <div class="grid-card-title">LOCATION 3</div>
                 <div class="grid-card-text">自動車教習所<br>年齢・職業・人生がバラバラの人たちが一時的に交錯する「新しい学校」</div>
             </div>
-            <div class="grid-card">
+            <div class="grid-card" id="card-sharehouse">
                 <div class="grid-card-title">LOCATION 4</div>
                 <div class="grid-card-text">シェアハウス<br>いろんな人が集まる場所を軸に、日常の断片を切り取る</div>
             </div>
-            <div class="grid-card">
+            <div class="grid-card" id="card-lounge">
                 <div class="grid-card-title">LOCATION 5</div>
                 <div class="grid-card-text">ホテルラウンジ<br>パパ活、マッチングアプリ、ビジネス交渉…様々な人生が交差</div>
             </div>
-            <div class="grid-card">
+            <div class="grid-card" id="card-listening">
                 <div class="grid-card-title">UNIQUE POINT</div>
                 <div class="grid-card-text">「聞いてる人」の反応も見せる<br>2人が話してるのを、聞いてる人たちのリアクションで魅せる</div>
             </div>
