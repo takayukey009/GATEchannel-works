@@ -485,6 +485,69 @@
             font-weight: 300;
             color: var(--text-light);
         }
+
+        /* Script Sample */
+        .slide-script {
+            padding-top: 80px;
+        }
+
+        .script-layout {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .script-info {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .script-cast-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .script-cast-table th,
+        .script-cast-table td {
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .script-cast-table th {
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+        }
+
+        .script-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .script-line {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .script-speaker {
+            font-weight: 700;
+            width: 50px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .script-dialogue {
+            flex: 1;
+            font-weight: 300;
+        }
     </style>
 </head>
 
@@ -756,9 +819,101 @@
         </div>
     </div>
 
-    <!-- Slide 9: Key Success Factors -->
+    <!-- Slide 10: Script Sample -->
+    <div class="slide slide-script">
+        <div class="nav">10. SCRIPT SAMPLE</div>
+        <div class="section-title" style="margin-bottom: 20px;">脚本サンプル「マッチングアプリって実際どうなの？」</div>
+        <div class="script-layout">
+            <div class="script-info">
+                <div style="font-size: 12px; color: var(--text-light); margin-bottom: 20px;">
+                    📍 カフェのテーブル席<br>
+                    ⏱️ 約2分
+                </div>
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 10px;">CASTING
+                </div>
+                <table class="script-cast-table">
+                    <tr>
+                        <th>役名</th>
+                        <th>キャスト</th>
+                        <th>年齢</th>
+                    </tr>
+                    <tr>
+                        <td>A子</td>
+                        <td>谷口 彩菜</td>
+                        <td>26歳</td>
+                    </tr>
+                    <tr>
+                        <td>B美</td>
+                        <td>島田 和奏</td>
+                        <td>26歳</td>
+                    </tr>
+                    <tr>
+                        <td>C子</td>
+                        <td>吉富 千桜</td>
+                        <td>23歳</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="script-content">
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">ねえ、マッチングアプリってやったことある？</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">あるある。3ヶ月で辞めた。</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span
+                        class="script-dialogue">え、なんで？</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">だって、みんな最初めっちゃいい人なの。優しいし、話聞いてくれるし。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">いいじゃん。</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">でもね、2回目のデートぐらいから急に「うち来る？」って。</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span class="script-dialogue">あー…</span>
+                </div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">いやいやいや、まだ名字も知らないんですけど？って。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">（笑）それはキツい。</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span
+                        class="script-dialogue">私もやってたけど、逆に真面目すぎる人が重かった。</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">真面目すぎる？</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span
+                        class="script-dialogue">初デートで「将来何人子供欲しい？」って聞かれた。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">え、怖っ。</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span
+                        class="script-dialogue">でしょ？こっちはカフェでケーキ食べてるだけなのに。</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">極端だよね。ヤリモクか、結婚モクか。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">中間いないの？普通に仲良くなりたいだけの人。</span></div>
+                <div class="script-line"><span class="script-speaker">C子</span><span
+                        class="script-dialogue">いると思う。けど、見分けつかないんだよね。</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span
+                        class="script-dialogue">プロフィールに「まずは友達から」って書いてる人、大体ヤリモク説。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">えー、じゃあ何て書いてあったら信用できるの？</span></div>
+                <div class="script-line"><span class="script-speaker">B美</span><span class="script-dialogue">……</span>
+                </div>
+                <div class="script-line"><span class="script-speaker">C子</span><span class="script-dialogue">……</span>
+                </div>
+                <div class="script-line"><span class="script-speaker">B美</span><span class="script-dialogue">ない。</span>
+                </div>
+                <div class="script-line"><span class="script-speaker">C子</span><span class="script-dialogue">ないね。</span>
+                </div>
+                <div class="script-line"><span class="script-speaker">A子</span><span
+                        class="script-dialogue">…私、今日始めようと思ってたんだけど。</span></div>
+                <div class="script-line"><span class="script-speaker">B美・C子</span><span
+                        class="script-dialogue">やめとけ。</span></div>
+                <div class="script-line"><span class="script-speaker">A子</span><span class="script-dialogue">えー！</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Key Success Factors -->
     <div class="slide slide-list">
-        <div class="nav">10. SUCCESS FACTORS</div>
+        <div class="nav">11. SUCCESS FACTORS</div>
         <div class="section-title" style="margin-bottom: 40px;">成功のためのポイント</div>
         <div class="list-container">
             <div class="list-item">
@@ -790,7 +945,7 @@
 
     <!-- Slide 10: Next Actions -->
     <div class="slide slide-title dark">
-        <div class="nav">11. NEXT ACTIONS</div>
+        <div class="nav">12. NEXT ACTIONS</div>
         <div class="title-main" style="color: rgba(255,255,255,0.5);">FIRST STEPS</div>
         <div class="title-jp" style="font-size: 36px; margin-bottom: 40px;">目指せ、フォロワー1万人</div>
         <div class="body-text"
