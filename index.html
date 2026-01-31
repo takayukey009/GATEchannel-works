@@ -1483,11 +1483,13 @@
 
     <style>
         /* Responsive Styles */
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .slide {
                 padding: 40px 20px;
                 aspect-ratio: auto;
-                min-height: 100vh;
+                min-height: auto;
+                /* Allow height to fit content */
                 margin-bottom: 40px;
                 height: auto;
             }
@@ -1498,7 +1500,8 @@
             }
 
             .title-jp {
-                font-size: 32px;
+                font-size: 28px;
+                /* Slightly smaller for long titles */
             }
 
             .slide-split {
@@ -1551,22 +1554,32 @@
                 width: 100%;
             }
 
+            /* Slide 7: Timeline - Improved for Mobile */
             .timeline-container {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 40px;
+                gap: 30px;
             }
 
             .timeline-item {
-                flex-direction: row;
+                flex-direction: column;
+                /* Stack vertically */
+                align-items: flex-start;
                 text-align: left;
                 width: 100%;
-                gap: 20px;
+                gap: 10px;
             }
 
             .timeline-date {
-                margin-bottom: 0;
-                min-width: 60px;
+                margin-bottom: 5px;
+                font-size: 24px;
+                border-bottom: 2px solid var(--accent);
+                width: 100%;
+                padding-bottom: 5px;
+            }
+
+            .timeline-title {
+                font-size: 16px;
             }
 
             .compare-container {
@@ -1595,14 +1608,28 @@
                 margin: 10px 0;
             }
 
+            /* Slide 5: Cast List - Improved Grid */
             .cast-container {
-                justify-content: center;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                justify-content: stretch;
             }
 
             .cast-card {
-                width: calc(50% - 15px);
-                margin-bottom: 10px;
+                width: 100%;
+                margin-bottom: 0px;
+            }
+
+            .cast-photo {
+                height: 160px;
+                object-fit: cover;
+            }
+
+            /* Slide 9: Stage Ideas - Image Adjustment */
+            .split-right img {
+                height: 180px !important;
+                /* Smaller height for mobile */
             }
         }
 
