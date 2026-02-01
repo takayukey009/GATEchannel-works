@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNS→演劇プロジェクト　GATE WORKS（仮） 企画書</title>
+    <title>SNS→演劇プロジェクト　千駄ヶ谷の住人（仮） 企画書</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
@@ -579,17 +579,57 @@
 
 <body>
 
-    <!-- Slide 1: Title -->
-    <div class="slide slide-title">
+    <!-- Slide 1: Opening & Title -->
+    <div class="slide dark"
+        style="justify-content: center; align-items: center; text-align: center; position: relative;">
         <div class="nav">01. COVER</div>
-        <div class="title-main">GATE CHANNEL & WORKS PRESENTS</div>
-        <div class="title-jp" style="font-size: 64px; margin-bottom: 10px;">GATE WORKS（仮）</div>
-        <div style="font-size: 24px; font-weight: 700; letter-spacing: 0.2em; margin-bottom: 30px;">SNS演劇連動プロジェクト</div>
-        <div class="title-sub">「盗み聞き」体験で生まれる没入感と共感 — SNSから舞台へ</div>
-        <div class="badges">
-            <span class="badge">SHORT DRAMA</span>
-            <span class="badge">LIVE STAGE</span>
+
+        <!-- Opening Video Overlay -->
+        <div id="videoOverlay"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; background: #000; display: flex; justify-content: center; align-items: center;">
+            <video id="openingVideo" autoplay muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="opening.mp4" type="video/mp4">
+            </video>
         </div>
+
+        <div
+            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.3em; margin-bottom: 30px; color: rgba(255,255,255,0.5);">
+            GATE PRESENTS</div>
+
+        <div style="font-size: 72px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 20px;">
+            <span style="display: inline-block;">千駄ヶ谷</span><span style="display: inline-block;">の住人</span><span
+                style="font-size: 40px;">（仮）</span>
+        </div>
+
+        <div
+            style="font-size: 24px; font-weight: 700; letter-spacing: 0.2em; margin-bottom: 30px; color: rgba(255,255,255,0.9);">
+            SNS演劇連動プロジェクト</div>
+
+        <div
+            style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); margin-bottom: 60px;">
+            SENDAGAYA NO JUNIN</div>
+
+        <div class="badges">
+            <span class="badge" style="border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.8);">SHORT
+                DRAMA</span>
+            <span class="badge" style="border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.8);">LIVE
+                STAGE</span>
+        </div>
+
+        <!-- Script -->
+        <script>
+            const video = document.getElementById('openingVideo');
+            const overlay = document.getElementById('videoOverlay');
+            if (video && overlay) {
+                video.addEventListener('ended', function () {
+                    overlay.style.transition = 'opacity 2.0s ease';
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 2000);
+                });
+            }
+        </script>
     </div>
 
     <!-- Slide 2: Reference Analysis (Combined) -->
@@ -814,21 +854,7 @@
         </div>
     </div>
 
-    <script>
-        // Opening video handler
-        const video = document.getElementById('openingVideo');
-        const overlay = document.getElementById('videoOverlay');
 
-        if (video && overlay) {
-            video.addEventListener('ended', function () {
-                overlay.style.transition = 'opacity 2.0s ease';
-                overlay.style.opacity = '0';
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                }, 2000);
-            });
-        }
-    </script>
 
     <!-- Slide 5: Concept Rationale -->
     <div class="slide slide-split">
@@ -1135,7 +1161,7 @@
 
     <div class="slide slide-grid">
         <div class="nav">07. CONCEPT</div>
-        <div class="section-title" style="margin-bottom: 30px;">GATEチャンネル＆ワークス — コンセプト案</div>
+        <div class="section-title" style="margin-bottom: 30px;">千駄ヶ谷の住人（仮） — コンセプト案</div>
         <div class="grid-container">
             <div class="grid-card" id="card-izakaya">
                 <div class="grid-card-title">LOCATION 1</div>
