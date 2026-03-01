@@ -1,0 +1,16 @@
+{
+    "productionDeployment": {
+        "toolbarInvocationMode": "never"
+    },
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "x-vercel-toolbar",
+                    "value": "disabled"
+                }
+            ]
+        }
+    ]
+}
