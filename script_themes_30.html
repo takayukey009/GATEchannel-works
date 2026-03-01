@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIRST ACT — 脚本テーマ40本</title>
+    <title>FIRST ACT — 脚本テーマ45本</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
         rel="stylesheet">
@@ -67,6 +67,22 @@
             line-height: 2;
         }
 
+        .badge-legend {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .rank-section {
             margin-bottom: 60px;
         }
@@ -99,10 +115,6 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
-        .theme-card.female {
-            border-left-color: #c87ea0;
-        }
-
         .theme-number {
             font-family: 'Inter', sans-serif;
             font-size: 12px;
@@ -110,10 +122,10 @@
             color: var(--gold);
             letter-spacing: 0.1em;
             margin-bottom: 5px;
-        }
-
-        .theme-card.female .theme-number {
-            color: #c87ea0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .theme-title {
@@ -148,10 +160,6 @@
             font-weight: 700;
         }
 
-        .theme-card.female .theme-details li::before {
-            color: #c87ea0;
-        }
-
         .point-box {
             margin-top: 15px;
             padding: 10px;
@@ -161,19 +169,11 @@
             color: #fff;
         }
 
-        .theme-card.female .point-box {
-            background: rgba(200, 126, 160, 0.1);
-        }
-
         .point-label {
             color: var(--gold);
             font-weight: 700;
             font-size: 11px;
             margin-right: 5px;
-        }
-
-        .theme-card.female .point-label {
-            color: #c87ea0;
         }
 
         .simple-theme {
@@ -182,17 +182,33 @@
             font-style: italic;
         }
 
-        .female-badge {
+        /* Badges */
+        .badge {
             display: inline-block;
             font-size: 10px;
             font-weight: 700;
-            color: #c87ea0;
-            border: 1px solid #c87ea0;
             border-radius: 3px;
-            padding: 1px 5px;
-            margin-left: 6px;
-            vertical-align: middle;
+            padding: 2px 7px;
             letter-spacing: 0.05em;
+            vertical-align: middle;
+        }
+
+        .badge-female {
+            background: rgba(200, 126, 160, 0.25);
+            color: #e08ab0;
+            border: 1px solid #c87ea0;
+        }
+
+        .badge-male {
+            background: rgba(100, 160, 220, 0.25);
+            color: #7ab4e0;
+            border: 1px solid #5a9fd4;
+        }
+
+        .badge-mixed {
+            background: rgba(100, 200, 140, 0.2);
+            color: #7ccfa0;
+            border: 1px solid #5cb880;
         }
 
         @media (max-width: 768px) {
@@ -219,44 +235,48 @@
     <div class="container">
         <div class="header">
             <div class="header-nav">FIRST ACT SCRIPT THEMES</div>
-            <h1 class="main-title">千駄ヶ谷わんてぃく 脚本テーマ40本</h1>
-            <p class="sub-description">SNS（TikTok/YouTube
-                Shorts）で「コメントしたくなる」「賛否が分かれる」「世代間ギャップ」「時事」を突く、強力なテーマ40本。<br><span
-                    style="color:#c87ea0;">ピンク枠</span>は「あの卓が気になる」風・女性視点の会話テーマ。</p>
+            <h1 class="main-title">千駄ヶ谷わんてぃく 脚本テーマ45本</h1>
+            <p class="sub-description">SNS（TikTok/YouTube Shorts）で「コメントしたくなる」「賛否が分かれる」「世代間ギャップ」「時事」を突く、強力なテーマ45本。</p>
+            <div class="badge-legend">
+                <div class="badge-legend-item"><span class="badge badge-female">女性のみ</span> 女性視点・女性共感特化</div>
+                <div class="badge-legend-item"><span class="badge badge-male">男性のみ</span> 男性視点・男性共感特化</div>
+                <div class="badge-legend-item"><span class="badge badge-mixed">男女混合</span> 全年代・全性別対応</div>
+            </div>
         </div>
 
         <!-- ===== S RANK ===== -->
         <div class="rank-section">
-            <h2 class="rank-title">【Sランク】圧倒的共感＆大論争必須（1〜14）</h2>
+            <h2 class="rank-title">【Sランク】圧倒的共感＆大論争必須（1〜15）</h2>
             <div class="theme-grid">
 
                 <div class="theme-card">
-                    <div class="theme-number">01.</div>
+                    <div class="theme-number">01. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「賃上げ5%」って、体感ゼロじゃない？（2026年春闘🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 春闘で「5%の賃上げ！」というニュースを見た若手が「上がった実感まったくない」と不満顔。</li>
                         <li><strong>承:</strong> マスターが「物価はそれ以上に上がってるから、実質手取り減ってる人も多い」と冷静に指摘。</li>
-                        <li><strong>転:</strong> 「じゃあ賃上げって誰が得してるの？」と話が広がり、大企業vs中小企業格差に突入。</li>
-                        <li><strong>結:</strong> 「千駄ヶ谷のコーヒーも値上がりして600円。これ給付金より痛い」とマスターが力説。</li>
+                        <li><strong>転:</strong> 「じゃあ賃上げって誰が得してるの？」大企業vs中小企業格差に突入。</li>
+                        <li><strong>結:</strong> 「千駄ヶ谷のコーヒーも600円になった。これ給付金より痛い」とマスターが力説。</li>
                     </ul>
                     <div class="point-box"><span
                             class="point-label">POINT</span>春闘と物価高の乖離はリアルな生活の話。全年代が「わかる」ネタ。コメント欄が荒れること確定。</div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">02.</div>
+                    <div class="theme-number">02. <span class="badge badge-male">男性のみ</span></div>
                     <h3 class="theme-title">WBC日本代表、組み合わせでもう優勝確定説（2026年3月🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> WBC始まった！と盛り上がる常連たち。「今年も日本余裕でしょ」という楽観論。</li>
-                        <li><strong>承:</strong> 「それ慢心じゃない？去年のU-18ボコボコにされたの覚えてる？」と一人が水を差す。</li>
+                        <li><strong>承:</strong> 「それ慢心じゃない？去年のU-18ボコボコにされたの覚えてる？」と水を差す。</li>
                         <li><strong>転:</strong> 「WBCの開催国が日本になったら絶対行く」「MLBのスター選手なんで出ないの？」と話が大きくなる。</li>
                         <li><strong>結:</strong> 「応援で一番盛り上がるのはやっぱり居酒屋で見ること」とこのカフェの宣伝になる。</li>
                     </ul>
-                    <div class="point-box"><span class="point-label">POINT</span>2026年3月はWBC真っ只中。男女年齢関係なく議論しやすい。</div>
+                    <div class="point-box"><span class="point-label">POINT</span>2026年3月はWBC真っ只中。スポーツ熱が一番白熱する男性会話ネタ。
+                    </div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">03.</div>
+                    <div class="theme-number">03. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「闇バイト」を断れない若者、なにが悪いんだ？（社会問題🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 「また闇バイト検挙」のニュースを見た常連が「なんでこんな馬鹿なことするの？」と呆れる。</li>
@@ -269,11 +289,11 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">04.</div>
+                    <div class="theme-number">04. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「子どものSNS禁止」法律、日本でもやるべき？（時事論争🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> オーストラリアが16歳未満のSNS利用を法律で禁止したことがニュースになる。</li>
-                        <li><strong>承:</strong> 「いっそ日本もやったら？」という意見と「そんなの規制できないよ」という反論が対立。</li>
+                        <li><strong>承:</strong> 「いっそ日本もやったら？」vs「そんなの規制できないよ」が対立。</li>
                         <li><strong>転:</strong> 「自分が中学生のとき、SNSあったら確実に死んでた（精神的に）」という当事者目線の話に深まる。</li>
                         <li><strong>結:</strong> 「じゃあ、このカフェはスマホ禁止ゾーンにします」とマスターが宣言→即反発。</li>
                     </ul>
@@ -282,37 +302,37 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">05.</div>
+                    <div class="theme-number">05. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">インバウンドのせいで「東京が地元じゃなくなった」問題</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 渋谷や浅草に行ったら外国人観光客だらけで「どこにいるの？」となった話。</li>
                         <li><strong>承:</strong> 「オーバーツーリズムは問題」vs「外国人に経済回してもらわないと困る」と対立。</li>
-                        <li><strong>転:</strong> 「浅草の人形焼きが外国人向けに値上がりしてる」「寿司屋が外国人向け価格になってる」という実害ベースの話に。</li>
+                        <li><strong>転:</strong> 「浅草の人形焼きが値上がり」「寿司屋が外国人向け価格になってる」という実害ベースの話に。</li>
                         <li><strong>結:</strong> 「このカフェはまだ地元値段だよな」と確認し合い、マスターがしれっと値上げを告白。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>インバウンド好景気の恩恵と地元民の疎外感の二面性。新しい格差ネタ。</div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">06.</div>
+                    <div class="theme-number">06. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">結婚式のご祝儀3万円、高すぎ問題（鉄板×2026年版🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 今月だけで招待状が3枚届いた常連が「財布がやばい」と嘆く。</li>
                         <li><strong>承:</strong> 「ご祝儀制度そのものがおかしい」「でもやめると次自分のとき困る」というジレンマ。</li>
                         <li><strong>転:</strong> 「マネーフォワードで計算したら結婚式参加は赤字」「会費制を提案したら親に怒られた」。</li>
-                        <li><strong>結:</strong> 「このカフェでやるワンテイクウエディングなら安くていいよ」とマスターが新事業を提案。</li>
+                        <li><strong>結:</strong> 「このカフェでやるワンテイクウエディングなら安くていいよ」とマスターが提案。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>ご祝儀問題は永遠の鉄板。物価高の2026年でさらにリアリティアップ。
                     </div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">07.</div>
+                    <div class="theme-number">07. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">奢り・割り勘論争（2026年最新版🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 初デートで割り勘にしたら相手に引かれたという相談。</li>
                         <li><strong>承:</strong> 「今の時代は割り勘が普通」vs「初回くらいは空気読んで奢れよ」の激突。</li>
-                        <li><strong>転:</strong> 「PayPayで秒速割り勘したら怒られた」「1円単位で割ったら二度目のデートはなかった」という実例が続出。</li>
+                        <li><strong>転:</strong> 「PayPayで秒速割り勘したら怒られた」という実例が続出。</li>
                         <li><strong>結:</strong> 「このカフェで割り勘で揉めたカップル、3組別れてるから」というマスターのリアルトーク。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>ジェンダー・金銭感覚の変化が交差する永遠のテーマ。常にコメント欄が荒れる。
@@ -320,12 +340,12 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">08.</div>
+                    <div class="theme-number">08. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「SNS選挙」で政治が変わった？変わらない？（2026年衆院選🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 2026年2月の衆院選でSNS発信で急浮上した議員が当選したというニュース。</li>
                         <li><strong>承:</strong> 「政策よりルックスと喋りが上手い人が当選する時代になった」「でも既存政治よりまし」。</li>
-                        <li><strong>転:</strong> 「Xで怒りを煽るだけのアカウントが選挙を動かすのは危険」vs「オールドメディアが信用できないからSNSで調べるしかない」。</li>
+                        <li><strong>転:</strong> 「Xで怒りを煽るアカウントが選挙を動かすのは危険」vs「オールドメディアが信用できない」。</li>
                         <li><strong>結:</strong> 「投票率が上がったのは事実だから、SNS政治も悪くないかも」という微妙な着地。</li>
                     </ul>
                     <div class="point-box"><span
@@ -333,13 +353,12 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">09.</div>
+                    <div class="theme-number">09. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">サブスク貧乏と「解約忘れ」の罠（あるある🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 家計アプリで毎月の引き落としを確認したら、知らないサブスクが5件あった話。</li>
                         <li><strong>承:</strong> 「解約ページを分かりにくくしてる設計は絶対わざとだろ」と怒る常連。</li>
-                        <li><strong>転:</strong> 「月1000円は面倒で解約しない金額に設定されてる。完全に罠」「AIで自動解約してくれるサービスが存在する」という情報に全員がメモを取り始める。
-                        </li>
+                        <li><strong>転:</strong> 「月1000円は面倒で解約しない金額に設定されてる。完全に罠」。</li>
                         <li><strong>結:</strong> マスターが実は3年間解約し忘れていたサービスが判明し、その場でスマホをいじり始める。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>全員が確実に経験している。「うちも！」というコメントが止まらないやつ。
@@ -347,19 +366,19 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">10.</div>
+                    <div class="theme-number">10. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">フリマアプリで中古品買うの、あり？なし？（価値観ギャップ🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 「これメルカリで安く買えた〜！」と喜ぶZ世代。</li>
-                        <li><strong>承:</strong> 「他人が使ったモノとか気持ち悪くない？」と難色を示す上の世代（マスターなど）。</li>
-                        <li><strong>転:</strong> 「サステナブルだしコスパ最強」vs「良い新品を長く大切に使うのが本当のエコ」と反論。</li>
+                        <li><strong>承:</strong> 「他人が使ったモノとか気持ち悪くない？」と難色を示す上の世代。</li>
+                        <li><strong>転:</strong> 「サステナブルだしコスパ最強」vs「良い新品を長く大切に使うのが本当のエコ」。</li>
                         <li><strong>結:</strong> その中古品に「前の持ち主の謎のメモ（または匂い）」が残っていて、一気に冷めるZ世代。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>シェア・中古への抵抗感の有無。モノの「所有」という概念の変化。</div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F01. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">11. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">「元彼のSNS、つい見てしまう現象」あるある（恋愛あるある🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「私は絶対見ない派」「いや絶対見てるじゃん」「ミュートしてるのに見にいく矛盾がやばい」</li>
@@ -368,8 +387,8 @@
                             class="point-label">POINT</span>女性視聴者全員が「わかりすぎる」と思う感情。コメント欄が「私だけじゃなかった」で埋め尽くされる。</div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F03. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">12. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">「生理休暇、取れる？取っていい？」本音（賛否ある時事🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「取れる制度なのに申し訳なくて言い出せない」「男性上司に申請するのが地獄」「なんで制度だけあって使えないの？」</li>
@@ -378,8 +397,8 @@
                     </div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F08. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">13. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">友達の結婚報告、素直に喜べない自分どうしよう（エモ系🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「祝福してるのに何かもやもやする」「嫉妬じゃなくて置いてかれる感じ？」「自分が幸せじゃないわけじゃないのに」</li>
@@ -389,8 +408,8 @@
                     </div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F10. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">14. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">「普通に結婚したいだけなのに」がこんなにハードな時代（社会派エモ🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「条件と相性と運とタイミングが全部揃わないといけない」「昔の人はなんであんな簡単に結婚できたの？」「出会う機会がそもそもない」</li>
@@ -399,28 +418,41 @@
                             class="point-label">POINT</span>日常会話から深い社会問題へ。笑いながら刺さる会話。「泣きながら見てる」コメントが出るやつ。</div>
                 </div>
 
+                <div class="theme-card">
+                    <div class="theme-number">15. <span class="badge badge-male">男性のみ</span></div>
+                    <h3 class="theme-title">彼女・奥さんの「別に怒ってないよ」、絶対怒ってる問題（男の地雷🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 「最近なんか機嫌悪くない？」と聞いたら「別に怒ってないよ」と言われたが、明らかに空気が氷点下の話。</li>
+                        <li><strong>承:</strong> 男性陣が「あの"別に"は100%怒ってる」「原因が全くわからない」と共感の嵐。</li>
+                        <li><strong>転:</strong> 「謝る選択肢しかない」「でも何を謝ればいいかわからん」「いっそ教えてくれ」という乾いた笑いに。</li>
+                        <li><strong>結:</strong> マスターが「30年やってきてまだわからん」と爆弾発言。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>男性が「あるある！」と爆笑必至。女性視聴者からも「そりゃそうよ」「かわいい」コメントが来るやつ。</div>
+                </div>
+
             </div>
         </div>
 
         <!-- ===== A RANK ===== -->
         <div class="rank-section">
-            <h2 class="rank-title">【Aランク】日常の「あるある」と「ウザい」を突く（11〜20 + 女性A）</h2>
+            <h2 class="rank-title">【Aランク】日常の「あるある」と「ウザい」を突く（16〜30）</h2>
             <div class="theme-grid">
 
                 <div class="theme-card">
-                    <div class="theme-number">11.</div>
+                    <div class="theme-number">16. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">LINEか電話か問題、どっちが正解？（世代間ギャップ🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 若手スタッフが「急ぎの用でもないのに電話してくる人、マジでテロ」と怒っている。</li>
-                        <li><strong>承:</strong> マスターは「テキストだと細かいニュアンスが伝わらなくて何度もやり取りするのが無駄」と主張。</li>
+                        <li><strong>承:</strong> マスターは「テキストだとニュアンスが伝わらなくて何度もやり取りするのが無駄」と主張。</li>
                         <li><strong>転:</strong> 「いやタイパが〜」vs「既読スルーされるより電話で白黒つける方が早い」という持論が爆発。</li>
-                        <li><strong>結:</strong> その直後、若手のスマホに着信があり「あ、出よ」と即出する（相手は好きな人）。</li>
+                        <li><strong>結:</strong> その直後、若手のスマホに着信があり「あ、出よ」と即出る（相手は好きな人）。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>連絡手段における世代間ギャップ。「電話恐怖症」への共感と反論。</div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">12.</div>
+                    <div class="theme-number">17. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">仕事の辞め方、「退職代行」ってあり？</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 常連の客が「明日から仕事行きたくないから退職代行使おうかな」と相談。</li>
@@ -432,31 +464,31 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">13.</div>
+                    <div class="theme-number">18. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">マッチングアプリの「プロフィール写真詐欺」</h3>
                     <p class="simple-theme">※加工アプリ、他撮り風自撮り、サブカルアピールなどのあるある</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">14.</div>
+                    <div class="theme-number">19. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">ルーティン動画・vlogの「嘘くささ」</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 「丁寧な暮らしvlog」「朝5時起きのモーニングルーティン」を見ながらカフェで突っ込む。</li>
                         <li><strong>承:</strong> 「絶対にカメラ位置セットしてから二度寝してる」「この朝食、写真撮るために冷めきってるだろ」。</li>
                         <li><strong>転:</strong> 「他人の承認欲求を消費してるだけ」vs「フィクションとして楽しめばいい。映画と同じ」。</li>
-                        <li><strong>結:</strong> 散々バカにしていたのに、自分たちもお店のPR用に「意識高い系カフェルーティン」を撮り始める。</li>
+                        <li><strong>結:</strong> 散々バカにしていたのに、自分たちもお店のPR用「意識高い系カフェルーティン」を撮り始める。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>SNS上のフェイクに対する辟易と、それでも見てしまう現代人の矛盾。</div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">15.</div>
+                    <div class="theme-number">20. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「若者の〇〇離れ」、実は「お金がないだけ」説</h3>
                     <p class="simple-theme">※車、酒、旅行離れに対する若者のリアルな反論</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">16.</div>
+                    <div class="theme-number">21. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">AI、もう普通にいる問題（2025〜2026年・日常侵食）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 誰かが何気なく「さっきGeminiに聞いたんだけど」「Claudeはこう言ってた」と言い出す。</li>
@@ -469,20 +501,20 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">17.</div>
+                    <div class="theme-number">22. <span class="badge badge-male">男性のみ</span></div>
                     <h3 class="theme-title">AIギャル/AIグラドル、中身はおじさん問題</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 若手(20代)がSNSで見つけた超絶美少女（AI生成）の投稿を絶賛している。</li>
                         <li><strong>承:</strong> おじさん(30代・マスター)が「これ絶対中身は同年代の男だよ。プロンプトのクセで分かる」と見破る。</li>
-                        <li><strong>転:</strong> 「中身がおっさんなら騙されてるのと同じでは？」とキレる若手に対し、「理想の可愛いを提供してくれてるんだから感謝すべき」と熱弁するマスター。
-                        </li>
+                        <li><strong>転:</strong> 「中身がおっさんなら騙されてるのと同じ」とキレる若手に対し、「理想の可愛いを提供してくれてるんだから感謝すべき」と熱弁するマスター。</li>
                         <li><strong>結:</strong> そのアカウントからの自動リプに2人ともデレデレになる。</li>
                     </ul>
-                    <div class="point-box"><span class="point-label">POINT</span>AI生成コンテンツとホンモノ・ニセモノの価値観の違いを突く。</div>
+                    <div class="point-box"><span class="point-label">POINT</span>AI生成コンテンツとホンモノ・ニセモノの価値観の違いを突く男性視点ネタ。
+                    </div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">18.</div>
+                    <div class="theme-number">23. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">健康管理、スマートウォッチに支配されてない？</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 睡眠スコアが低かったからと、カフェでテンションが低い若手。</li>
@@ -494,7 +526,7 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">19.</div>
+                    <div class="theme-number">24. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">コスパ重視しすぎて「失敗する権利」を失う若者</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 映画を観る前に「絶対面白いか」をネタバレサイトで確認してから行く若手。</li>
@@ -506,13 +538,13 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">20.</div>
+                    <div class="theme-number">25. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">怒れない上司と、正解を知りたがる部下</h3>
                     <p class="simple-theme">※Z世代と中間管理職のコミュニケーションギャップ・ハラスメント恐怖症</p>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F02. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">26. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">占い、信じてないのに毎日チェックしてしまう矛盾（あるある）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「信じてないけど最下位だと一日憂鬱になる」「当たってないのに翌日も見る」「引越しも鑑定師に聞いてから決めた」</li>
@@ -520,8 +552,8 @@
                     <div class="point-box"><span class="point-label">POINT</span>「信じてないのに依存する」矛盾は女性に超刺さる日常ネタ。</div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F05. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">27. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">女同士のグループ旅行、本当にしんどくない？（あるある🔥）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「全員に気を使いながらの旅行は旅行じゃない」「でも一人旅はさみしい」「男のグループはなんで楽そうなの？」</li>
@@ -529,8 +561,8 @@
                     <div class="point-box"><span class="point-label">POINT</span>「楽しいはずなのにしんどい」という矛盾がリアルに刺さる。</div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F07. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">28. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">女性同士のSNS「いいね」の義務感、もう限界では？（SNS疲れ）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「友達の投稿、見てなくてもとりあえずいいねしてる」「返さないと気まずい人間関係マネジメントになってる」「デジタルお世辞すぎる」</li>
@@ -539,13 +571,27 @@
                     </div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F09. <span class="female-badge">女性視点</span></div>
-                    <h3 class="theme-title">職場の「優しすぎる女性上司」がかえって困る問題（職場あるある）</h3>
+                <div class="theme-card">
+                    <div class="theme-number">29. <span class="badge badge-mixed">男女混合</span></div>
+                    <h3 class="theme-title">職場の「優しすぎる上司」がかえって困る問題（職場あるある）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「怒らないのに何が地雷かわからなくてびくびくしてる」「優しさが読めない方が怖い」「怒鳴る上司より謎に疲れる」</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>若い世代の職場ストレスと人間関係の読み方へのリアルな不満。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">30. <span class="badge badge-male">男性のみ</span></div>
+                    <h3 class="theme-title">男同士の本音トーク、実はほぼできない説（男の友情あるある🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 「男って友達と深い話、する？」と突然聞かれる。一拍おいて全員「…しないな」。</li>
+                        <li><strong>承:</strong> 「仕事の話、趣味の話、下ネタ…でも悩みとか将来の不安は絶対言わない」という集合知が判明。</li>
+                        <li><strong>転:</strong> 「女性はよく泣きながら語り合ったりするでしょ。あれできる？」と聞かれてまた全員が沈黙。</li>
+                        <li><strong>結:</strong> 「まあ、酒飲みながらここで話してるじゃないか」という着地で、このカフェの存在意義に辿り着く。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>男性が「刺さりすぎる」と苦笑いしながら共感するネタ。女性視聴者からも「これが男友達の限界か…」とコメントが来るやつ。
+                    </div>
                 </div>
 
             </div>
@@ -553,11 +599,11 @@
 
         <!-- ===== B RANK ===== -->
         <div class="rank-section">
-            <h2 class="rank-title">【Bランク】ニッチだけど刺さる層が必ずいる（21〜30 + 女性B）</h2>
+            <h2 class="rank-title">【Bランク】ニッチだけど刺さる層が必ずいる（31〜45）</h2>
             <div class="theme-grid">
 
                 <div class="theme-card">
-                    <div class="theme-number">21.</div>
+                    <div class="theme-number">31. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">出産祝い、ベビー服 vs 離乳食サブスク vs 現金</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> 友人への出産祝いで悩む客。（ベビー服を選ぶ）</li>
@@ -569,62 +615,62 @@
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">22.</div>
+                    <div class="theme-number">32. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">「推し活」破産、どこまでが健全？</h3>
                     <p class="simple-theme">※推しのために借金、ホストやVライバーへの投げ銭</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">23.</div>
+                    <div class="theme-number">33. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">セルフレジとAIアプリ、ホントに便利？（世代間ギャップ）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> Z世代が「スーパーはセルフレジ一択。店員と話すの面倒」と語る。</li>
-                        <li><strong>承:</strong> 「機械の使い方が分からなくて後ろに並ばれるプレッシャーが地獄」という上の世代視点が出る。</li>
+                        <li><strong>承:</strong> 「機械の使い方が分からなくて後ろに並ばれるプレッシャーが地獄」という上の世代視点。</li>
                         <li><strong>転:</strong> AIアプリのUIがいかに「若者向け」に作られているかで白熱。</li>
-                        <li><strong>結:</strong> 「一番のUIは『すいません！』って大声で呼べる有人の個人店だよな」と、このカフェの存在意義に着地。</li>
+                        <li><strong>結:</strong> 「一番のUIは『すいません！』って大声で呼べる有人の個人店」と、このカフェの存在意義に着地。</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>デジタルディバイド。効率化の波に取り残されがちな層への共感とアンチテーゼ。
                     </div>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">24.</div>
+                    <div class="theme-number">34. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">メモ帳アプリに遺された「黒歴史」</h3>
                     <p class="simple-theme">※ポエムや深夜の感情の爆発</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">25.</div>
+                    <div class="theme-number">35. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">パワースポット・占いにハマるタイミングの法則</h3>
                     <p class="simple-theme">※人生の迷子になった時だけ神頼みするあるある</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">26.</div>
+                    <div class="theme-number">36. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">キャッシュレス決済の「種類多すぎ」問題</h3>
                     <p class="simple-theme">※結局どれが一番お得なのかという永遠のループとレジでのもたつき</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">27.</div>
+                    <div class="theme-number">37. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">趣味がない大人の「週末何してるの？」地獄</h3>
                     <p class="simple-theme">※履歴書の趣味欄書けない問題</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">28.</div>
+                    <div class="theme-number">38. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">美容室での「今日はどうしますか？」の絶望</h3>
                     <p class="simple-theme">※おまかせ、と言えないプレッシャーと会話の苦痛</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">29.</div>
+                    <div class="theme-number">39. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">グループLINEの「誰も返信しない時間」の恐怖</h3>
                     <p class="simple-theme">※誰かが口火を切るまでの謎のチキンレース</p>
                 </div>
 
                 <div class="theme-card">
-                    <div class="theme-number">30.</div>
+                    <div class="theme-number">40. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">人間関係の「サブスク化」（すぐ切れる関係）</h3>
                     <ul class="theme-details">
                         <li><strong>起:</strong> ちょっと嫌なことがあっただけですぐLINEブロックやSNSのフォローを外す現代の人間関係について。</li>
@@ -636,8 +682,8 @@
                     </div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F04. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">41. <span class="badge badge-female">女性のみ</span></div>
                     <h3 class="theme-title">スキンケア、高いの使ってる人が本当に勝ってるのか問題（美容論争）</h3>
                     <ul class="theme-details">
                         <li><strong>会話の軸:</strong> 「プチプラで十分派」「いや投資だよ、顔は履歴書」「3万のクリームが今の自分への最大の自己肯定感」</li>
@@ -646,13 +692,51 @@
                     </div>
                 </div>
 
-                <div class="theme-card female">
-                    <div class="theme-number">F06. <span class="female-badge">女性視点</span></div>
+                <div class="theme-card">
+                    <div class="theme-number">42. <span class="badge badge-mixed">男女混合</span></div>
                     <h3 class="theme-title">マッチングアプリで「友達から始めたい」は嘘くさい問題（恋愛あるある）</h3>
                     <ul class="theme-details">
-                        <li><strong>会話の軸:</strong> 「マッチングアプリに友達を求めてる人間はいない」「でもそれ書いてある男の方が安全そうに見える不思議」</li>
+                        <li><strong>会話の軸:</strong> 「マッチングアプリに友達を求めてる人間はいない」「でもそれ書いてある人の方が安全そうに見える不思議」</li>
                     </ul>
                     <div class="point-box"><span class="point-label">POINT</span>マッチングアプリのリアルな使い心地と、そこに漂う嘘と希望の話。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">43. <span class="badge badge-male">男性のみ</span></div>
+                    <h3 class="theme-title">サウナブーム、体感ゼロ派の言い分（男の健康論争）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 「最近サウナ行き始めた！整うって最高」と布教してくる常連。</li>
+                        <li><strong>承:</strong> 「俺行ったけど、ただ熱くて苦しいだけだった。どこが整うの？」と体感ゼロ派が反論。</li>
+                        <li><strong>転:</strong> 「ととのうのは一種の自己暗示」「いや脳科学的に証明されてる」という謎の健康論争に発展。</li>
+                        <li><strong>結:</strong> 「そもそもこのカフェのアイスコーヒーの方が整う」とマスターが参戦。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>サウナ賛否論争。ハマってる人とそうでない人の温度差が面白い。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">44. <span class="badge badge-male">男性のみ</span></div>
+                    <h3 class="theme-title">理容室 vs 美容院、男が美容院に行くのはアリ？（男の美容問題）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 「最近美容院に行き始めた」という告白。「え、男が？」という軽いリアクション。</li>
+                        <li><strong>承:</strong> 「美容院の方がうまいし、ドリンク出るし、待ち時間もなくて快適」という具体的なメリットが語られる。</li>
+                        <li><strong>転:</strong> 「でも女性客だらけで居づらくない？」「料金高いのでは？」という現実の壁。</li>
+                        <li><strong>結:</strong> 「俺はずっと近所の1000円カットで十分」というマスターの一言で、美容院派が若干の気まずさを感じる。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>男性の美容意識の変化。コメント欄が美容院派vs理容室派に真っ二つに割れる。
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">45. <span class="badge badge-male">男性のみ</span></div>
+                    <h3 class="theme-title">男の「また飲みましょう」は100%社交辞令説（男の人間関係あるある）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 久しぶりに会った知人から「また飲みましょう！」と言われて帰ってきた常連。「…行くと思う？」と聞く。</li>
+                        <li><strong>承:</strong> 全員が即答「行かない」「連絡待ちでこっちからは絶対しない」「もし来たら本気だと思う」。</li>
+                        <li><strong>転:</strong> 「でもこの言葉を言わないと別れ際が気まずい」「日本語の"また今度"に似てる」という本質に気づく。</li>
+                        <li><strong>結:</strong> 「逆に本気で行きたい時なんて言えばいいの？」→「…『今日空いてる？』が唯一の本気サイン」という結論。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>男性の人間関係の不器用さと温かさが滲む。「あるある！！」「言語化してくれてありがとう」コメントが来るやつ。</div>
                 </div>
 
             </div>
