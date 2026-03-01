@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRST ACT — 脚本テーマ30本</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --base: #E9E9E9;
+            --text: #000000;
+            --text-light: #333333;
+            --accent: #000000;
+            --dark-bg: #0a0a0a;
+            --dark-text: #ffffff;
+            --gold: #c8a84e;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 40px;
+        }
+
+        .header-nav {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 15px;
+        }
+
+        .sub-description {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .rank-section {
+            margin-bottom: 60px;
+        }
+
+        .rank-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(200, 168, 78, 0.3);
+            display: inline-block;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .theme-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--gold);
+            padding: 20px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .theme-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+
+        .theme-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .theme-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .theme-details li {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .theme-details li strong {
+            color: #fff;
+        }
+
+        .theme-details li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .point-box {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(200, 168, 78, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .point-label {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 11px;
+            margin-right: 5px;
+        }
+
+        .simple-theme {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 24px;
+            }
+
+            .theme-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rank-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-nav">FIRST ACT SCRIPT THEMES</div>
+            <h1 class="main-title">千駄ヶ谷わんてぃく 脚本テーマ30本</h1>
+            <p class="sub-description">
+                SNS（TikTok/YouTube
+                Shorts）で「コメントしたくなる」「賛否が分かれる」「世代間ギャップ」「最新AIトレンド」を突く、強力なテーマ30本を面白さ（バズるポテンシャル）順にリストアップしています。
+            </p>
+        </div>
+
+        <div class="rank-section">
+            <h2 class="rank-title">【Sランク】圧倒的共感＆大論争必須（1〜10位）</h2>
+            <div class="theme-grid">
+
+                <div class="theme-card">
+                    <div class="theme-number">01.</div>
+                    <h3 class="theme-title">AIギャル/AIグラドル、中身はおじさん問題（最新トレンド🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 若手(20代)がSNSで見つけた超絶美少女（AI生成）の投稿を絶賛している。</li>
+                        <li><strong>承:</strong> おじさん(30代・マスター)が「これ絶対中身は同年代の男だよ。プロンプトのクセで分かる」と見破る。</li>
+                        <li><strong>転:</strong>
+                            「中身がおっさんなら騙されてるのと同じでは？」とキレる若手に対し、「理想の可愛いを提供してくれてるんだから、中の人が誰でも感謝すべき」と熱弁するマスター。</li>
+                        <li><strong>結:</strong> 結局、そのアカウントからの「いつも見てくれてありがとう♡」という自動リプに2人ともデレデレになる。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>AI生成コンテンツ（#JPAI_HEAVEN等のトレンド）に対する「ホンモノ・ニセモノ」の価値観の違いを突く。男の悲しい性と最新技術の皮肉。
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">02.</div>
+                    <h3 class="theme-title">出産祝い、ベビー服 vs 離乳食サブスク vs 現金</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 友人への出産祝いで悩む客。（ベビー服を選ぶ）</li>
+                        <li><strong>承:</strong> 「ベビー服は好みがあるしすぐ着られなくなる」と若手が全否定。代わりに「高級離乳食のサブスク一択」と主張。</li>
+                        <li><strong>転:</strong> さらに「一番ありがたいのは現金・アマギフ」という究極の結論に至り、情緒（お祝いの気持ち）と実利（コスパ）が衝突。</li>
+                        <li><strong>結:</strong> 結局「現金をそのまま渡すのは味気ない」からと、現金が飛び出すサプライズバルーンという謎の形に落ち着く。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>現代の実学主義（タイパ・コスパ重視）と伝統的なお祝い文化の対立。コメント欄で「絶対現金」「おむつケーキは迷惑」などの議論を生む。
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">03.</div>
+                    <h3 class="theme-title">セルフレジとAIアプリ、ホントに便利？（シニア・60代vs Z世代🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> マスター（30代）やZ世代が「スーパーはセルフレジ一択。店員と話すの面倒」と語る。</li>
+                        <li><strong>承:</strong> そこへ常連の60代風の客（または別世代の役柄）の話になり「機械の使い方が分からなくて後ろに並ばれるプレッシャーが地獄」という視点が出る。
+                        </li>
+                        <li><strong>転:</strong> 最新AIアプリやサブスクのUIがいかに「若者・ITリテラシー強者向け」に作られているかで白熱。</li>
+                        <li><strong>結:</strong> 「結局、一番のUIは『すいません！』って大声で呼べる有人の個人店だよな」と、このカフェの存在意義に着地する。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>デジタルディバイド。効率化の波に取り残されがちな層への共感と、効率至上主義へのアンチテーゼ。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">04.</div>
+                    <h3 class="theme-title">結婚式のご祝儀3万円、高すぎ問題</h3>
+                    <p class="simple-theme">※現代のタイパ・コスパに直結する超鉄板テーマ</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">05.</div>
+                    <h3 class="theme-title">奢り・割り勘論争（令和最新版）</h3>
+                    <p class="simple-theme">※デートや先輩後輩での奢り問題。電子マネーでの1円単位割り勘など</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">06.</div>
+                    <h3 class="theme-title">LINEか電話か問題、どっちが正解？（世代間ギャップ🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 若手スタッフが「急ぎの用でもないのに電話してくる人、マジでテロ」と怒っている。</li>
+                        <li><strong>承:</strong> マスターは「テキストだと細かいニュアンスや温度感が伝わらなくて何度もやり取りするのが無駄」と主張。</li>
+                        <li><strong>転:</strong> 「いやタイパが〜」「いや効率が〜」と衝突する中、「既読スルーされるより電話で白黒つける方が早い」という独自の持論が爆発。</li>
+                        <li><strong>結:</strong> その直後、若手のスマホに着信があり、画面を見た瞬間「あ、出よ」と即出する（相手は推しや好きな人）。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>連絡手段における圧倒的な世代間ギャップ。「電話恐怖症」への共感と反論。
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">07.</div>
+                    <h3 class="theme-title">フリマアプリで中古品買うの、あり？なし？（価値観ギャップ🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 「これメルカリで安く買えた〜！」と喜ぶZ世代。</li>
+                        <li><strong>承:</strong> 「他人が使ったモノとか気持ち悪くない？」と難色を示す上の世代（マスターなど）。</li>
+                        <li><strong>転:</strong> 「サステナブルだしコスパ最強」というZ世代に対し、「良い新品を長く大切に使うのが本当のエコ」と反論。</li>
+                        <li><strong>結:</strong> 結局、その中古品に「前の持ち主の謎のメモ（または匂い）」が残っていて、一気に冷めるZ世代。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>シェア・中古への抵抗感の有無。モノの「所有」という概念の変化。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">08.</div>
+                    <h3 class="theme-title">仕事の辞め方、「退職代行」ってあり？</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 常連の客が「明日から仕事行きたくないから退職代行使おうかな」と相談。</li>
+                        <li><strong>承:</strong> 「直接言わずにお金払って他人に言わせるってどうなの？」と説教気味になるマスター。</li>
+                        <li><strong>転:</strong> 「パワハラ上司に直接言う精神的ダメージを3万円で回避できるなら、最高の保険」という合理的な意見。</li>
+                        <li><strong>結:</strong> 「じゃあ別れ話も代行してもらう？」という極論になり、愛も仕事もアウトソーシングする現代への恐怖に気づく。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>退職代行という旬なトピックへの賛否。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">09.</div>
+                    <h3 class="theme-title">サブスク貧乏と「解約忘れ」の罠</h3>
+                    <p class="simple-theme">※アマプラ、ネトフリ、謎の月額アプリ等、現代人の削れない固定費の恐怖</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">10.</div>
+                    <h3 class="theme-title">AIへの「ありがとう」は必要か？（最新AI・倫理🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> ChatGPTなどを使うとき、プロンプトに「よろしくお願いします」「ありがとうございます」と丁寧な言葉を使うべきかで議論に。</li>
+                        <li><strong>承:</strong> 「AIなんだから無駄なトークン消費するな、命令だけでいい」という効率派（若手や常連）。</li>
+                        <li><strong>転:</strong> 「将来AIが反乱を起こした時、丁寧に接していた人間だけが生き残る。これは人間側の生存戦略だ」と真顔で力説するマスター。</li>
+                        <li><strong>結:</strong> 結局、Siriやアレクサに急に優しく語りかけ始める一同。</li>
+                    </ul>
+                    <div class="point-box"><span
+                            class="point-label">POINT</span>GPT-4oやClaude3などAIが人間に近づく中での「AIへの感情移入」という最新の現象。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rank-section">
+            <h2 class="rank-title">【Aランク】日常の「あるある」と「ウザい」を突く（11〜20位）</h2>
+            <div class="theme-grid">
+
+                <div class="theme-card">
+                    <div class="theme-number">11.</div>
+                    <h3 class="theme-title">飲み会の「とりあえず生」強制ハラスメント</h3>
+                    <p class="simple-theme">※アルハラ・ソバハラに繋がる現代の飲み会事情</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">12.</div>
+                    <h3 class="theme-title">「推し活」破産、どこまでが健全？</h3>
+                    <p class="simple-theme">※推しのために借金、ホストやVライバーへの投げ銭</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">13.</div>
+                    <h3 class="theme-title">マッチングアプリの「プロフィール写真詐欺」</h3>
+                    <p class="simple-theme">※加工アプリ、他撮り風自撮り、サブカルアピールなどのあるある</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">14.</div>
+                    <h3 class="theme-title">映画館の「エンドロール最後まで見るか」論争</h3>
+                    <p class="simple-theme">※スマホ見始める人問題、余韻 vs 早く帰りたい</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">15.</div>
+                    <h3 class="theme-title">「若者の〇〇離れ」、実は「お金がないだけ」説</h3>
+                    <p class="simple-theme">※車、酒、旅行離れに対する若者のリアルな反論</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">16.</div>
+                    <h3 class="theme-title">ルーティン動画・vlogの「嘘くささ」</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> SNSでよくある「丁寧な暮らしvlog」「朝5時起きのモーニングルーティン」を見ながらカフェで突っ込む。</li>
+                        <li><strong>承:</strong> 「絶対にカメラ位置セットしてから二度寝してる」「この朝食、写真撮るために冷めきってるだろ」と裏側を暴く。</li>
+                        <li><strong>転:</strong> 「他人の承認欲求を消費してるだけ」と冷めた視点に対し、「フィクションとして楽しめばいい。映画と同じ」という擁護論。</li>
+                        <li><strong>結:</strong> 散々バカにしていたのに、自分たちもお店のPR用に「意識高い系カフェルーティン」を撮り始める。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>SNS上のフェイク（演出）に対する辟易と、それでも見てしまう現代人の矛盾。
+                    </div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">17.</div>
+                    <h3 class="theme-title">健康管理、スマートウォッチに支配されてない？（現代病🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 睡眠スコアが低かったからと、カフェでテンションが低い若手。</li>
+                        <li><strong>承:</strong> 「自分の体調くらい機械じゃなくて自分で感じろ」と呆れるマスター。</li>
+                        <li><strong>転:</strong> 「心拍数、ストレス値、歩数…データがないと自分の状態が分からない」という現代の異常な管理社会。</li>
+                        <li><strong>結:</strong> 「じゃあこのケーキのカロリーは？」と聞かれ、見ないふりをして食べる若手（都合の良いデータ主義）。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>数値化への依存と、本来の感覚の喪失。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">18.</div>
+                    <h3 class="theme-title">コスパ重視しすぎて「失敗する権利」を失う若者</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 映画を観る前に「絶対面白いか」をネタバレサイトで確認してから行く若手。</li>
+                        <li><strong>承:</strong> 「失敗してクソ映画だったな〜と笑い合うのも人生のエンタメ」と説教する上の世代。</li>
+                        <li><strong>転:</strong> 「時間とお金が限られてるから、ハズレを引きたくない」。タイパ至上主義の究極の形＝「未知への恐怖」。</li>
+                        <li><strong>結:</strong> 最終的に「デート相手の正解ルートもAIに聞いてよ！」と暴走する。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>タイパ・ネタバレ至上主義への問題提起。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">19.</div>
+                    <h3 class="theme-title">お土産の「センス」で人間性が決まる問題</h3>
+                    <p class="simple-theme">※個別包装か、美味しいけど分けづらいか、消えモノか</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">20.</div>
+                    <h3 class="theme-title">怒れない上司と、正解を知りたがる部下</h3>
+                    <p class="simple-theme">※Z世代と中間管理職のコミュニケーションギャップ・ハラスメント恐怖症</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rank-section">
+            <h2 class="rank-title">【Bランク】ニッチだけど刺さる層が必ずいる（21〜30位）</h2>
+            <div class="theme-grid">
+
+                <div class="theme-card">
+                    <div class="theme-number">21.</div>
+                    <h3 class="theme-title">メモ帳アプリに遺された「黒歴史」</h3>
+                    <p class="simple-theme">※ポエムや深夜の感情の爆発</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">22.</div>
+                    <h3 class="theme-title">パワースポット・占いにハマるタイミングの法則</h3>
+                    <p class="simple-theme">※人生の迷子になった時だけ神頼みするあるある</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">23.</div>
+                    <h3 class="theme-title">退職後のSNSデビュー、「繋がり」と「孤独」（シニア・アッパーミドル🔥）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> 親が急にSNS（InstagramやFacebook）を始めて、馴れ馴れしいコメントをしてきて困っているという相談。</li>
+                        <li><strong>承:</strong> 退職して社会との繋がりが薄れた親世代が、オンラインで居場所を探しているという切ない背景。</li>
+                        <li><strong>転:</strong> 「若者からしたらウザいけど、親の孤独を埋める手段なら許すべきか？」という議論。</li>
+                        <li><strong>結:</strong> 親のアカウントを見たら、自分よりフォロワーが多くてインフルエンサー化していて逆に凹む。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>親世代のSNS利用と「繋がり」の再構築。</div>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">24.</div>
+                    <h3 class="theme-title">キャッシュレス決済の「種類多すぎ」問題</h3>
+                    <p class="simple-theme">※結局どれが一番お得なのかという永遠のループとレジデのもたつき</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">25.</div>
+                    <h3 class="theme-title">趣味がない大人の「週末何してるの？」地獄</h3>
+                    <p class="simple-theme">※履歴書の趣味欄書けない問題</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">26.</div>
+                    <h3 class="theme-title">エナジードリンクへの異常な依存</h3>
+                    <p class="simple-theme">※「翼を授かる」どころか寿命を削っている自覚</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">27.</div>
+                    <h3 class="theme-title">「とりあえずやってみる」が言えなくなる年齢</h3>
+                    <p class="simple-theme">※年齢を重ねるごとの「腰の重さ」とリスク回避</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">28.</div>
+                    <h3 class="theme-title">美容室での「今日はどうしますか？」の絶望</h3>
+                    <p class="simple-theme">※おまかせ、と言えないプレッシャーと会話の苦痛</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">29.</div>
+                    <h3 class="theme-title">グループLINEの「誰も返信しない時間」の恐怖</h3>
+                    <p class="simple-theme">※誰かが口火を切るまでの謎のチキンレース</p>
+                </div>
+
+                <div class="theme-card">
+                    <div class="theme-number">30.</div>
+                    <h3 class="theme-title">人間関係の「サブスク化」（すぐ切れる関係）</h3>
+                    <ul class="theme-details">
+                        <li><strong>起:</strong> ちょっと嫌なことがあっただけで、すぐLINEブロックやSNSのフォローを外す現代の人間関係について。</li>
+                        <li><strong>承:</strong> 「嫌な人と無理に付き合う必要はない」という合理主義（人間関係のストック化・サブスク化）。</li>
+                        <li><strong>転:</strong> 「簡単に切れる関係ばかりだと、本気でぶつかる相手がいなくなる」というマスターの言葉。</li>
+                        <li><strong>結:</strong> 「まあでも、マスターの店はブロックできないから来ますよ」と軽く慰められる。</li>
+                    </ul>
+                    <div class="point-box"><span class="point-label">POINT</span>SNS時代の希薄な人間関係の是非。全体を締めくくるエモい着地にも使える。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+            <a href="proposal_v2.html"
+                style="display: inline-block; padding: 10px 20px; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; transition: background 0.2s;"
+                onmouseover="this.style.background='rgba(200, 168, 78, 0.3)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.1)'">← 企画書に戻る</a>
+        </div>
+    </div>
+</body>
+
+</html>
