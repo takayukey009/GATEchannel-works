@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>千駄ヶ谷の住人（仮）脚本集 Vol.1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+        @page {
+            size: 254mm 142.875mm;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            /* 改行などの空白ノードによる白紙ページを無効化 */
+        }
+
+        /* ページ共通 */
+        .page {
+            width: 254mm;
+            height: 142.5mm;
+            /* ほんのわずかに小さくして白紙溢れを防ぐ */
+            padding: 12mm 14mm;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 13px;
+            line-height: 2.0;
+            letter-spacing: 0.04em;
+            page-break-inside: avoid;
+            page-break-after: always;
+            overflow: hidden;
+            position: relative;
+            background: #FAFAF5;
+            box-sizing: border-box;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* 表紙 */
+        .page.cover {
+            /* 縦書き＋上下左右中央配置 */
+            display: flex;
+            justify-content: center;
+            /* vertical-rlでは水平方向の中央 */
+            align-items: center;
+            /* vertical-rlでは垂直方向の中央 */
+            background: #0A0A0A;
+            color: #F0F0F0;
+        }
+
+        .cover .title {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+        }
+
+        .cover .subtitle {
+            font-size: 15px;
+            color: #999;
+            letter-spacing: 0.15em;
+            margin-right: 14px;
+            /* タイトルとサブタイトルの間隔 */
+        }
+
+        .cover .credit {
+            font-size: 11px;
+            color: #666;
+            margin-left: 28px;
+        }
+
+        /* INFO */
+        .page.info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #F2F2F0;
+        }
+
+        .info .ep-num {
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 0.15em;
+            margin-left: 8px;
+        }
+
+        .info .ep-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            border-right: 3px solid #1a1a1a;
+            padding-right: 10px;
+        }
+
+        .info .ep-theme {
+            font-size: 12px;
+            color: #777;
+            margin-left: 14px;
+        }
+
+        .info .ep-detail {
+            font-size: 13px;
+            color: #555;
+            margin-left: 16px;
+        }
+
+        .info .ep-cast {
+            font-size: 13px;
+            margin-left: 22px;
+        }
+
+        .info .ep-cast>div {
+            margin-left: 4px;
+        }
+
+        .cast-role {
+            font-weight: 700;
+        }
+
+        /* 台本本文 */
+        .page.script {
+            display: block;
+            /* flexを解除し、自然な縦書き段組（右から左）にする */
+        }
+
+        /* 柱 */
+        .hashira {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            margin-left: 18px;
+            margin-right: 2px;
+            border-right: 2px solid #1a1a1a;
+            padding-right: 8px;
+        }
+
+        /* セリフブロック */
+        .serif-block {
+            margin-left: 14px;
+            /* 次のセリフブロックまでの距離（左側アキ） */
+        }
+
+        /* 役名 */
+        .character-name {
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            padding-top: 0;
+            margin-left: 2px;
+            /* セリフまでの距離（左側アキ） */
+        }
+
+        /* セリフ */
+        .serif {
+            font-size: 13px;
+            padding-top: 1em;
+            /* セリフの開始位置（上から1文字分下げる） */
+            line-height: 2.0;
+        }
+
+        /* ト書き（セリフ内） */
+        .serif-togaki {
+            font-size: 11px;
+            color: #555;
+            padding-top: 1em;
+            /* セリフと同じ下げ幅 */
+            margin-left: 2px;
+            /* セリフ本体との間隔 */
+        }
+
+        /* 独立したト書き */
+        .tg {
+            font-size: 13px;
+            padding-top: 3em;
+            /* 独立ト書きは3文字下げ */
+            margin-left: 14px;
+        }
+
+        /* フッター */
+        .ft {
+            position: absolute;
+            bottom: 6mm;
+            left: 14mm;
+            writing-mode: horizontal-tb;
+            font-size: 8px;
+            color: #ccc;
+        }
+
+        /* 縦中横（数字を横組みにする） */
+        .tcy {
+            text-combine-upright: all;
+            -webkit-text-combine: horizontal;
+            -ms-text-combine-horizontal: all;
+            display: inline;
+            font-size: inherit;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body><!-- 表紙 -->
+    <div class="page cover">
+        <div class="title">千駄ヶ谷わんてぃく</div>
+        <div class="subtitle">脚本案（第一稿）</div>
+    </div><!-- ① INFO -->
+    <div class="page info">
+        <div class="ep-num">第一話</div>
+        <div class="ep-title">別れ話のプロンプト</div>
+        <div class="ep-theme">AI、もう普通にいる問題</div>
+        <div class="ep-detail">場所：居酒屋・テーブル席（夜）</div>
+        <div class="ep-detail">尺：約<span class="tcy">2</span>分</div>
+        <div class="ep-cast">
+            <div><span class="cast-role">カイト</span>（<span class="tcy">21</span>）小久保　宏紀</div>
+            <div><span class="cast-role">タク</span>（<span class="tcy">29</span>）吉川　慶</div>
+            <div><span class="cast-role">リュウ</span>（<span class="tcy">33</span>）五十嵐　諒</div>
+        </div>
+    </div><!-- ① 台本 1/2 -->
+    <div class="page script">
+        <div class="hashira">○居酒屋・テーブル席（夜）</div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「タクさん、これ何て返したら一番ダメージ少ないっすかね？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「ん？　ハードル高いな。彼女からのLINE？　『どうして怒ってるかわかる？』……うわぁ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「一番踏んじゃいけない地雷だぞ、それ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「だから今、ChatGPTに『怒っている彼女への最適な返答を考えて。トーンは誠実かつ少し反省気味で』って打ってるとこっす」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「待て待て！　彼女への返信をAIに外注するなよ！」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「いや、俺のポンコツな言葉より、人類の叡智を集結させたAIの方が絶対正解出しますって」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「でもAIの文章って、なんか冷たいっていうか『いかにも』感出ないか？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「あ、出ました。『あなたの感情に寄り添えなかったことを深くお詫び申し上げます。今後の関係構築に向けて建設的な対話をーー』」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「ビジネスメールかよ！　絶対火に油注ぐわ！」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「じゃあ、『少し天然な年下彼氏風に』を追加して再生成……と」</div>
+        </div>
+        <div class="ft"><span class="tcy">①</span> 別れ話のプロンプト (<span class="tcy">1</span>/<span class="tcy">2</span>)
+        </div>
+    </div><!-- ① 台本 2/2 -->
+    <div class="page script">
+        <p class="s"><span class="n">リュウ</span><span
+                class="t">（覗き込んで）</span>「『ごめんね、僕の配慮が足りなかったよっ（汗）　怒ったお顔も可愛いけど、やっぱり笑顔が見たいな☆』……」</p>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「……これ、お前の口から出るの？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「……これ行きましょう」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「行くの！？　命知らずかお前は」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「ていうか、もしかして相手の彼女も……」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「あ、返信来ました」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「なんて？　別れよう？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カイト</div>
+            <div class="serif">「『その件につきましては、現在私の感情の整理がついておらず、適切な回答を控えさせていただきます。改めてこちらからご連絡いたします』」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「彼女もAI使ってんじゃねーか！」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「もうAI同士で付き合えよ……」</div>
+        </div>
+        <div class="ft"><span class="tcy">①</span> 別れ話のプロンプト (<span class="tcy">2</span>/<span class="tcy">2</span>)
+        </div>
+    </div>
+<!-- ② INFO -->
+    <div class="page info">
+        <div class="ep-num">第二話</div>
+        <div class="ep-title">解約ボタンはダンジョンの奥深く</div>
+        <div class="ep-theme">サブスク貧乏と「解約忘れ」の罠</div>
+        <div class="ep-detail">場所：カフェ・テーブル席（昼）</div>
+        <div class="ep-detail">尺：約<span class="tcy">2</span>分</div>
+        <div class="ep-cast">
+            <div><span class="cast-role">ソウタ</span>（<span class="tcy">27</span>）中塚　智</div>
+            <div><span class="cast-role">カナデ</span>（<span class="tcy">26</span>）島田　和奏</div>
+            <div><span class="cast-role">セトカ</span>（<span class="tcy">22</span>）寺崎　ひな</div>
+        </div>
+    </div><!-- ② 台本 1/2 -->
+    <div class="page script">
+        <div class="hashira">○カフェ・テーブル席（昼）</div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「俺、もしかして……息してるだけで月<span class="tcy">1</span>万くらい削られてるかもしれない」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「なに、また変な宗教？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「サブスクだよ。今日カードの明細見たら、聞いたこともない海外のドキュメンタリー特化サイトから毎月<span class="tcy">1500</span>円引かれてて」
+            </div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">セトカ</div>
+            <div class="serif">「うわ、出た。無料トライアル解約忘れの刑」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「そう！　最初の<span class="tcy">1</span>ヶ月無料だから登録して、すぐ解約しようと思ってたのに……もう<span
+                    class="tcy">2</span>年経ってた」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「<span class="tcy">2</span>年！？　<span class="tcy">3</span>万<span
+                    class="tcy">6</span>千円じゃん。何が見放題だったのよ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「わかんない……一回も見てないから……」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">セトカ</div>
+            <div class="serif">「私なんて、スケジュールに『アマプラ解約』って入れてたのに、そのカレンダーアプリを気付かず有料版にしてて毎月課金されてた」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「ミイラ取りがミイラになってるじゃん」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「解約のボタンってさ、なんであんなにダンジョンみたいに隠されてるの？　引き止めがハンパない」</div>
+        </div>
+        <div class="ft"><span class="tcy">②</span> 解約ボタンはダンジョンの奥深く (<span class="tcy">1</span>/<span
+                class="tcy">2</span>)</div>
+    </div><!-- ② 台本 2/2 -->
+    <div class="page script">
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「元カレかよ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">セトカ</div>
+            <div class="serif">「わかる。あれ、最後の方ちょっと情が湧くよね。『こんなに私のこと引き止めてくれるの、お前だけだよ……』って」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「あのさ、登録した瞬間に解約手続きすればいいんだよ。そうすれば<span class="tcy">1</span>ヶ月はそのまま無料で使えるから」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「……え、天才？　なんでそれもっと早く教えてくれなかったの？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「教えようと思ったけど、ソウタ君いつも『俺、このサービス一生ついていくわ』みたいな熱い顔で登録するじゃん」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「……」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">セトカ</div>
+            <div class="serif">「で、そのドキュメンタリーサイト、解約できたの？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ソウタ</div>
+            <div class="serif">「パスワード忘れてログインすらできないから、明日カード会社に電話してカードごと止める」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">カナデ</div>
+            <div class="serif">「強行突破すぎでしょ」</div>
+        </div>
+        <div class="ft"><span class="tcy">②</span> 解約ボタンはダンジョンの奥深く (<span class="tcy">2</span>/<span
+                class="tcy">2</span>)</div>
+    </div><!-- ③ INFO -->
+    <div class="page info">
+        <div class="ep-num">第三話</div>
+        <div class="ep-title">他人の幸せのパトロン</div>
+        <div class="ep-theme">結婚式のご祝儀<span class="tcy">3</span>万円、高すぎ問題</div>
+        <div class="ep-detail">場所：カフェ（昼）</div>
+        <div class="ep-detail">尺：約<span class="tcy">2</span>分</div>
+        <div class="ep-cast">
+            <div><span class="cast-role">タク</span>（<span class="tcy">29</span>）吉川　慶</div>
+            <div><span class="cast-role">リュウ</span>（<span class="tcy">33</span>）五十嵐　諒</div>
+            <div><span class="cast-role">ユイ</span>（<span class="tcy">18</span>）田中　希和</div>
+        </div>
+    </div><!-- ③ 台本 1/2 -->
+    <div class="page script">
+        <div class="hashira">○カフェ（昼）</div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「……リュウさん、<span class="tcy">3</span>万って高くないですか？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「急にどうした。……あぁ、また後輩の結婚式か」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「今年<span class="tcy">4</span>回目ですよ。<span class="tcy">12</span>万。プレステ<span
+                    class="tcy">5</span>買えますって」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「俺なんかお前、乾杯の挨拶頼まれるからプラスαで包むんだぞ。もうコントローラー二つとソフトもセットで買えるわ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「そもそもなんで『割れない数』で<span class="tcy">3</span>万なんですかね。<span class="tcy">1</span>万じゃダメなんですか？」
+            </div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「バカお前、<span class="tcy">1</span>万じゃ飯代と引き出物であっちが赤字になるだろ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ユイ</div>
+            <div class="serif-togaki">（スマホをいじりながら）</div>
+            <div class="serif">「……え、結婚式って、行く側がお金払うんですか？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「……は？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ユイ</div>
+            <div class="serif">「いや、お祝いに『呼ばれてる』んですよね？　なんでチケット代みたいに<span class="tcy">3</span>万も取るんですか？」</div>
+        </div>
+        <div class="ft"><span class="tcy">③</span> 他人の幸せのパトロン (<span class="tcy">1</span>/<span class="tcy">2</span>)
+        </div>
+    </div><!-- ③ 台本 2/2 -->
+    <div class="page script">
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「チケット代って……まあ、そうだけど。そういう文化だから」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ユイ</div>
+            <div class="serif">「クラファンみたいですね。『私たちの幸せな<span class="tcy">1</span>日を応援してください！　リターンはフランス料理のフルコースです！』みたいな」
+            </div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif-togaki">（ハッとして）</div>
+            <div class="serif">「……たしかに。俺、他人の幸せのパトロンやってんだ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">リュウ</div>
+            <div class="serif">「パトロンて。……でもまあ、祝儀袋に名前書くとき、ちょっと手震えるよなあ」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「あの『参萬圓』って旧字体で書く時間、マジでなんの修行ですかね」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ユイ</div>
+            <div class="serif">「PayPayで送金じゃダメなんですか？」</div>
+        </div>
+        <div class="tg">（二人で顔を見合わせる）</div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「それは……なんか、味気ないじゃん？」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">ユイ</div>
+            <div class="serif">「<span class="tcy">3</span>万払って、謎の達成感得てるだけじゃないですか」</div>
+        </div>
+        <div class="serif-block">
+            <div class="character-name">タク</div>
+            <div class="serif">「……お釣り出ませんか？」</div>
+        </div>
+        <div class="ft"><span class="tcy">③</span> 他人の幸せのパトロン (<span class="tcy">2</span>/<span class="tcy">2</span>)
+        </div>
+    </div></body>
+
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わんてぃく FIRST ACT — 脚本テーマ20本</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --text: #fff;
+            --gold: #c8a84e;
+            --card: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1)
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            letter-spacing: .04em
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1600px;
+            aspect-ratio: 16/9;
+            margin: 0 auto 20px;
+            padding: 50px 70px;
+            background: var(--bg);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
+            page-break-after: always;
+            overflow: hidden
+        }
+
+        .nav {
+            position: absolute;
+            top: 30px;
+            left: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4)
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            color: rgba(255, 255, 255, .3)
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            letter-spacing: .1em;
+            margin-bottom: 6px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-left: 3px solid var(--gold)
+        }
+
+        .card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .card p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.6
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 9px;
+            background: rgba(200, 168, 78, .15);
+            color: var(--gold);
+            padding: 1px 6px;
+            margin-right: 4px;
+            font-weight: 700
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            flex: 1
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            flex: 1
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            flex: 1
+        }
+
+        .scene {
+            padding: 10px 12px;
+            border-left: 2px solid var(--gold);
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .scene-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: .1em
+        }
+
+        .scene p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .meta {
+            font-size: 10px;
+            color: rgba(255, 255, 255, .4);
+            margin-top: 6px
+        }
+
+        @media print {
+            body {
+                background: #0a0a0a
+            }
+
+            .slide {
+                box-shadow: none;
+                margin: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide" style="justify-content:center;align-items:center;text-align:center">
+        <div
+            style="font-family:'Inter';font-size:11px;font-weight:700;letter-spacing:.3em;color:rgba(255,255,255,.3);margin-bottom:30px">
+            GATE CHANNEL & WORKS</div>
+        <div style="font-size:42px;font-weight:700;letter-spacing:.08em;margin-bottom:8px">わんてぃく</div>
+        <div
+            style="font-family:'Inter';font-size:16px;font-weight:700;letter-spacing:.3em;color:var(--gold);margin-bottom:40px">
+            FIRST ACT</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:.1em;margin-bottom:10px">脚本テーマ 20本</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4)">ベース案 — 2026.02 / 作成：十河</div>
+    </div>
+
+    <!-- SLIDE 2: INDEX 1-10 -->
+    <div class="slide">
+        <div class="nav">01. THEME INDEX — #01-10</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div style="margin-top:50px;margin-bottom:15px;font-size:18px;font-weight:700">テーマ一覧 <span
+                style="color:var(--gold)">#01–10</span></div>
+        <div class="grid-5">
+            <div class="card">
+                <div class="tag">恋愛</div>
+                <div class="tag">夜</div>
+                <h3>#01</h3>
+                <p>マッチングアプリのプロフ写真、証明写真はアリか</p>
+                <div class="meta">吉川・中塚・小久保</div>
+            </div>
+            <div class="card">
+                <div class="tag">世代</div>
+                <div class="tag">昼</div>
+                <h3>#02</h3>
+                <p>LINEの句読点、怒ってるように見える？</p>
+                <div class="meta">五十嵐・田中・島田</div>
+            </div>
+            <div class="card">
+                <div class="tag">あるある</div>
+                <div class="tag">夜</div>
+                <h3>#03</h3>
+                <p>結婚式のご祝儀3万円、高すぎ問題</p>
+                <div class="meta">島田・谷口・中塚</div>
+            </div>
+            <div class="card">
+                <div class="tag">トレンド</div>
+                <div class="tag">昼</div>
+                <h3>#04</h3>
+                <p>AIに人生相談したら全否定された</p>
+                <div class="meta">吉川・中塚・小久保</div>
+            </div>
+            <div class="card">
+                <div class="tag">恋愛</div>
+                <div class="tag">夜</div>
+                <h3>#05</h3>
+                <p>元カレのSNS、見ちゃう問題</p>
+                <div class="meta">谷口・寺崎・島田</div>
+            </div>
+            <div class="card">
+                <div class="tag">あるある</div>
+                <div class="tag">昼</div>
+                <h3>#06</h3>
+                <p>友達の子供の写真、リアクションに困る</p>
+                <div class="meta">島田・吉川・中塚</div>
+            </div>
+            <div class="card">
+                <div class="tag">仕事</div>
+                <div class="tag">夜</div>
+                <h3>#07</h3>
+                <p>副業バレたらどうする？</p>
+                <div class="meta">五十嵐・小久保・吉川</div>
+            </div>
+            <div class="card">
+                <div class="tag">日常</div>
+                <div class="tag">昼</div>
+                <h3>#08</h3>
+                <p>カフェで隣の席がうるさい時</p>
+                <div class="meta">田中・小久保・五十嵐</div>
+            </div>
+            <div class="card">
+                <div class="tag">恋愛</div>
+                <div class="tag">夜</div>
+                <h3>#09</h3>
+                <p>好きな人の前で自分を出せない</p>
+                <div class="meta">中塚・谷口・小久保</div>
+            </div>
+            <div class="card">
+                <div class="tag">多様性</div>
+                <div class="tag">昼</div>
+                <h3>#10</h3>
+                <p>推し活に理解のない人への説明の仕方</p>
+                <div class="meta">寺崎・田中・吉川</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: INDEX 11-20 -->
+    <div class="slide">
+        <div class="nav">02. THEME INDEX — #11-20</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div style="margin-top:50px;margin-bottom:15px;font-size:18px;font-weight:700">テーマ一覧 <span
+                style="color:var(--gold)">#11–20</span></div>
+        <div class="grid-5">
+            <div class="card">
+                <div class="tag">多様性</div>
+                <div class="tag">昼</div>
+                <h3>#11</h3>
+                <p>男がスイーツ好きっておかしい？</p>
+                <div class="meta">中塚・島田・五十嵐</div>
+            </div>
+            <div class="card">
+                <div class="tag">あるある</div>
+                <div class="tag">夜</div>
+                <h3>#12</h3>
+                <p>実家に帰省した時の疲れるやりとり</p>
+                <div class="meta">小久保・谷口・吉川</div>
+            </div>
+            <div class="card">
+                <div class="tag">恋愛</div>
+                <div class="tag">夜</div>
+                <h3>#13</h3>
+                <p>同棲ってした方がいい？</p>
+                <div class="meta">島田・中塚・谷口</div>
+            </div>
+            <div class="card">
+                <div class="tag">トレンド</div>
+                <div class="tag">昼</div>
+                <h3>#14</h3>
+                <p>なんでポケモンカードが流行ってるの？</p>
+                <div class="meta">小久保・吉川・五十嵐</div>
+            </div>
+            <div class="card">
+                <div class="tag">人間関係</div>
+                <div class="tag">夜</div>
+                <h3>#15</h3>
+                <p>飲み会の断り方、正解ある？</p>
+                <div class="meta">吉川・五十嵐・島田</div>
+            </div>
+            <div class="card">
+                <div class="tag">仕事</div>
+                <div class="tag">昼</div>
+                <h3>#16</h3>
+                <p>就活のガクチカ、盛りすぎ問題</p>
+                <div class="meta">小久保・中塚・島田</div>
+            </div>
+            <div class="card">
+                <div class="tag">人間関係</div>
+                <div class="tag">夜</div>
+                <h3>#17</h3>
+                <p>友達カップルの惚気話、どこまで聞く？</p>
+                <div class="meta">谷口・寺崎・吉川</div>
+            </div>
+            <div class="card">
+                <div class="tag">恋愛</div>
+                <div class="tag">夜</div>
+                <h3>#18</h3>
+                <p>バンドマンの彼氏ってどうなの？</p>
+                <div class="meta">寺崎・谷口・田中</div>
+            </div>
+            <div class="card">
+                <div class="tag">SNS</div>
+                <div class="tag">昼</div>
+                <h3>#19</h3>
+                <p>既読スルーと未読スルー、どっちがキツい？</p>
+                <div class="meta">田中・吉川・中塚</div>
+            </div>
+            <div class="card">
+                <div class="tag">日常</div>
+                <div class="tag">夜</div>
+                <h3>#20</h3>
+                <p>お客さんの悩み、自分より深刻だった件</p>
+                <div class="meta">五十嵐・谷口・島田</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: DETAIL #01-02 -->
+    <div class="slide">
+        <div class="nav">03. DETAIL — #01 #02</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#01 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">マッチングアプリのプロフ写真、証明写真はアリか</h3>
+                <div class="meta" style="margin-bottom:12px">吉川・中塚・小久保 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起 0–15秒</div>
+                    <p>小久保「吉川さんマッチングアプリやってるんすか？」→ 吉川「やってるけど全敗」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承 15–60秒</div>
+                    <p>中塚「プロフ写真が問題」→ 加工アプリでどこまで盛るか議論。吉川は自然体派、中塚は第一印象派。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転 60–90秒</div>
+                    <p>小久保「僕、証明写真使ってます」→ 二人絶句。「逆に清々しくない？」「嘘がない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結 90–120秒</div>
+                    <p>吉川「俺も証明写真にしようかな」→ 小久保「吉川さんはやめた方がいいっす」→「なんでだよ！」</p>
+                </div>
+                <div class="meta">💬 コメント誘発：「プロフ写真どこまで盛ってる？」</div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：小久保の「証明写真使ってます」が予想外すぎて場が凍る→笑いに転換する瞬間。吉川に「やめた方がいい」と返すオチの切れ味。</div>
+            </div>
+            <div>
+                <div class="badge">#02 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">LINEの句読点、怒ってるように見える？</h3>
+                <div class="meta" style="margin-bottom:12px">五十嵐・田中・島田 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>五十嵐「バイトの子にLINE送ったら既読スルーされた」→ 島田「見せて」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>「了解しました。」「明日もよろしくお願いします。」→ 田中「あ、これは…怒ってると思われてますね」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>田中が「句読点＝怒ってる」「絵文字なし＝冷たい」のZ世代ルールを解説。五十嵐、愕然。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>五十嵐「どう送ればいいんだよ」→ 田中「『りょ！👍』でいいです」→ 五十嵐「…無理」</p>
+                </div>
+                <div class="meta">💬 コメント誘発：「句読点つける派？つけない派？」</div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：五十嵐の「ちゃんとしたLINE」を田中が全否定する構図。「りょ！👍」を五十嵐が言えない絶望感。世代あるあるの共感力が高い。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: DETAIL #03-04 -->
+    <div class="slide">
+        <div class="nav">04. DETAIL — #03 #04</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#03 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">結婚式のご祝儀3万円、高すぎ問題</h3>
+                <div class="meta" style="margin-bottom:12px">島田・谷口・中塚 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>島田「来月また結婚式。ご祝儀3万円ってさ…」→ 谷口「今月2回で6万飛んだ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>フリーランスの島田に3万は痛い。谷口も美容師で給料高くない。「会費制にしてくれ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>中塚「俺、結婚式呼ばれたことない」→ 沈黙。「…それはそれで辛くない？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「呼ばれないから3万浮くけど、寂しいんだよな」→ 島田「…贅沢な悩みとは言えないか」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：「金がかかる」と盛り上がったところに中塚の「呼ばれたことない」で空気が変わる緩急。どっちが辛いか分からなくなる絶妙さ。</div>
+            </div>
+            <div>
+                <div class="badge">#04 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">AIに人生相談したら全否定された</h3>
+                <div class="meta" style="margin-bottom:12px">吉川・中塚・小久保 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>吉川「昨日ChatGPTに転職の相談したんだけど」→ 中塚「俺もやったことある」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>AIの回答読み上げ。「市場価値が低い」「自己分析から」→ 正論だけど傷つく。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>小久保「僕、恋愛相談したことある」→「外見から改善しましょう」→ 三人沈黙→爆笑</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「AIに聞いても言われたくないこと言われるだけ」→ 小久保「僕に聞きます？」→「いい」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：AIの返答の読み上げシーン。「正論だけど傷つく」という全員が経験あるやつ。小久保の恋愛相談→「外見から改善」が破壊力抜群。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: DETAIL #05-06 -->
+    <div class="slide">
+        <div class="nav">05. DETAIL — #05 #06</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#05 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">元カレのSNS、見ちゃう問題</h3>
+                <div class="meta" style="margin-bottom:12px">谷口・寺崎・島田 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>谷口「ストーリー非表示にしてるのに見ちゃう」→ 寺崎「ブロックすれば？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>「ブロックしたら"気にしてる"って思われそう」→ 元カレの新しい彼女のストーリーまで辿る話</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>寺崎「私は元彼全部ミュート」→ 谷口「え、元彼いたの？」→「…いたよ。普通に」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>島田「元カレのSNS見る時間で新しい出会い探した方がよくない？」→「正論言わないで」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：寺崎の「元彼いたの？」に対する反応。クール系の寺崎にも過去がある意外性。島田の正論で締まるが谷口が受け入れない可愛さ。</div>
+            </div>
+            <div>
+                <div class="badge">#06 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">友達の子供の写真、リアクションに困る</h3>
+                <div class="meta" style="margin-bottom:12px">島田・吉川・中塚 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>島田「グループLINEにまた子供の写真来た」→ 吉川「あー…」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>毎回「かわいい！」が義務感。吉川「正直、他人の子供の区別つかない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>中塚「俺、犬の写真毎日送ってるけどみんなリアクションしてくれる」→「それ困ってると思う」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「犬は？犬はいい？」→ 二人「…犬はいいよ」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：中塚の犬写真という斜め上ボケ。「みんな困ってると思う」の島田ツッコミ。最後「犬はいいよ」の謎の着地点が笑える。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: DETAIL #07-08 -->
+    <div class="slide">
+        <div class="nav">06. DETAIL — #07 #08</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#07 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">副業バレたらどうする？</h3>
+                <div class="meta" style="margin-bottom:12px">五十嵐・小久保・吉川 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>小久保「吉川さん副業してます？」→ 吉川一瞬固まる。「…なんで？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>会社では副業禁止。小久保は就活で「副業OKの会社がいい」派。五十嵐は昔ありえなかった話。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>吉川「仮に…仮にだけど、副業してたとしてバレたら？」→ 明らかに自分の話。五十嵐ニヤニヤ。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>小久保「何してるんすか？仮にですけど」→「プログラミング受託」→「本業と一緒じゃないすか」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：吉川の「仮に…仮にだけど」が完全に自分の話。五十嵐のニヤニヤ。「副業じゃなくて本業が二つ」という五十嵐のツッコミが秀逸。</div>
+            </div>
+            <div>
+                <div class="badge">#08 — 昼カフェ ★メタネタ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">カフェで隣の席がうるさい時</h3>
+                <div class="meta" style="margin-bottom:12px">田中・小久保・五十嵐 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>田中と小久保が勉強中。隣（映らない）がめちゃくちゃうるさい。「…うるさくない？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>小久保「言います？」田中「言えないでしょ」→ マスター五十嵐に助けを求める。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>五十嵐「俺が言おうか？」→「マスターが言ったら空気悪くなりません？」→ 三人で作戦会議</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>結局誰も言えず。二人帰る。五十嵐一人「…俺のカフェなのに」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：カフェが舞台の番組で「カフェがうるさい」というメタネタ。マスターなのに何もできない五十嵐。最後一人残される悲哀。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: DETAIL #09-10 -->
+    <div class="slide">
+        <div class="nav">07. DETAIL — #09 #10</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#09 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">好きな人の前で自分を出せない</h3>
+                <div class="meta" style="margin-bottom:12px">中塚・谷口・小久保 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>中塚「好きな子の前だとなんか違う自分になっちゃう」→ 谷口「どう違うの？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>普段テンション高い中塚が好きな子の前だと大人しくなる。「何話していいか分かんなくなる」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>小久保「僕は好きな子の前の方が自分出せるっす。好かれたいから全力出す」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>谷口「好きな子にも今みたいに喋ればいいのに」→ 中塚じわっと刺さる</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：小久保の「好きな子の前の方が全力」という逆転発想。谷口の最後の一言が笑いじゃなく「刺さる」で終わる温度感。</div>
+            </div>
+            <div>
+                <div class="badge">#10 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">推し活に理解のない人への説明の仕方</h3>
+                <div class="meta" style="margin-bottom:12px">寺崎・田中・吉川 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>吉川「推し活ってそんなにお金かかるの？」→ 寺崎「かかるよ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>ライブ遠征、グッズ、チェキの費用を説明。田中も「推しのために生きてる」。吉川引く。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>寺崎「吉川さんマッチングアプリに課金してるじゃん」→「同じ。出会えてないなら推しの方が確実」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>吉川「マッチングアプリも裏切らないよ。最初から何もないから」→ 田中「悲しすぎません？」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：寺崎の「マッチングアプリの課金と同じ」が痛すぎるカウンター。吉川の自虐「最初から何もない」が笑いと切なさの両方。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: DETAIL #11-12 -->
+    <div class="slide">
+        <div class="nav">08. DETAIL — #11 #12</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#11 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">男がスイーツ好きっておかしい？</h3>
+                <div class="meta" style="margin-bottom:12px">中塚・島田・五十嵐 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>中塚がパフェ食べてる。島田「いつもスイーツ頼むよね」→「ダメ？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>会社の飲み会でデザート頼んだら先輩に笑われた話。五十嵐「俺らの世代だとちょっとな」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>島田「それリュウさんの世代がおかしくない？」→ 五十嵐「…実は俺も甘いもの好き」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>五十嵐「今日のおすすめ、チーズケーキなんだけど」→「自分で食べたかっただけじゃん」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：五十嵐が実はスイーツ好きだったオチ。「おすすめチーズケーキ」が自分用だったバレ。マスターの人間味が出る回。</div>
+            </div>
+            <div>
+                <div class="badge">#12 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">実家に帰省した時の疲れるやりとり</h3>
+                <div class="meta" style="margin-bottom:12px">小久保・谷口・吉川 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>小久保「GW帰ったら開口一番『彼女は？』って」→ 谷口「私は『いつ結婚するの？』」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>親世代の圧。帰省するたびに同じ質問。全員共感。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>吉川「俺は最終的に見合い写真出てきた」→ 二人「うわぁ…」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>小久保「もう帰りたくない」→ 谷口「でもご飯は美味しいんでしょ？」→「…美味しいっす」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：吉川の「見合い写真出てきた」のエスカレーション。最後の「ご飯は美味しい」がなんだかんだ家族への愛。ほっこり枠。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: DETAIL #13-14 -->
+    <div class="slide">
+        <div class="nav">09. DETAIL — #13 #14</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#13 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">同棲ってした方がいい？</h3>
+                <div class="meta" style="margin-bottom:12px">島田・中塚・谷口 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>中塚「もし彼女できたらすぐ同棲したい」→ 島田「やめとけ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>メリデメ議論。中塚「一緒にいたいじゃん」vs 島田「生活習慣の違いで別れるパターン多い」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>谷口「友達、原因が『歯磨き粉の絞り方』で別れた」→ 些細すぎる別れ原因の話に</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「でもまず彼女いないんだった」→ 島田「そっちが先だね」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：「歯磨き粉の絞り方で別れた」の具体的すぎるエピソード。中塚の「彼女いない」自爆オチ。熱弁した後のオチの落差。</div>
+            </div>
+            <div>
+                <div class="badge">#14 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">なんでポケモンカードが流行ってるの？</h3>
+                <div class="meta" style="margin-bottom:12px">小久保・吉川・五十嵐 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>小久保「吉川さん、ポケカやりません？」→ 吉川「紙に何万も出すの理解できない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>小久保が熱弁。投資としての価値。吉川「NFTと何が違うの？」→「全然違います！」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>五十嵐「俺の時代はビックリマンシール。チョコ捨てて」→ 小久保「それも理解できない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>世代ごとに同じことを繰り返してる、というオチ。</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：小久保の熱弁vs吉川の冷静ツッコミ。五十嵐の「ビックリマンシール。チョコ捨てて」で世代ギャップを一撃。結局みんな同じという気づき。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: DETAIL #15-16 -->
+    <div class="slide">
+        <div class="nav">10. DETAIL — #15 #16</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#15 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">飲み会の断り方、正解ある？</h3>
+                <div class="meta" style="margin-bottom:12px">吉川・五十嵐・島田 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>吉川「上司の飲み会断りたい」→ 五十嵐「行けよ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>世代間で飲み会の価値が違う。五十嵐は人脈作りの場。吉川は「業務外の拘束」。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>島田「私は『予定あるんで』で全部断ってる」→「フリーランスだからできる」→「だからフリーになった」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>五十嵐「でもお前、今ここで飲んでるじゃん」→ 吉川「…ここは違うんだよ」→「何が違うの？」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：五十嵐の「お前今ここで飲んでるじゃん」が完璧なブーメラン。「ここは違う」の言い訳が苦しすぎて笑える。バーの存在意義を問う回。</div>
+            </div>
+            <div>
+                <div class="badge">#16 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">就活のガクチカ、盛りすぎ問題</h3>
+                <div class="meta" style="margin-bottom:12px">小久保・中塚・島田 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>小久保「ガクチカ、何書けばいいか分かんない」→ 中塚「バイトリーダーって書いとけ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>「リーダーを経験し…」→ 島田「それ全員書いてるよ」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>島田「正直に書いたら？」→ 小久保「先輩に怒られて泣きました」→ 三人爆笑</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「逆にそれ書いた方が面白くない？」→ 島田「面接官も飽きてるだろうしね」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：「バイトリーダー」テンプレへの島田のツッコミ。小久保の正直すぎるガクチカ「先輩に怒られて泣いた」の破壊力。就活生全員共感。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: DETAIL #17-18 -->
+    <div class="slide">
+        <div class="nav">11. DETAIL — #17 #18</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#17 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">友達カップルの惚気話、どこまで聞く？</h3>
+                <div class="meta" style="margin-bottom:12px">谷口・寺崎・吉川 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>谷口「友達が毎回彼氏の話してくる」→ 寺崎「興味ない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>聞くの好きだけど毎回同じ。吉川「俺にはそもそも関係ない世界」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>吉川「俺は誰にも惚気る相手がいないから逆に楽」→ 寺崎「…強がり？」→「…強がりです」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>寺崎「惚気られたら『で、いつ別れるの？』って聞く」→ 谷口「性格悪すぎ」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：吉川の「強がりです」の素直さ。寺崎の「いつ別れるの？」のサイコ感。キャラの個性が全部出る会話構成。</div>
+            </div>
+            <div>
+                <div class="badge">#18 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">バンドマンの彼氏ってどうなの？</h3>
+                <div class="meta" style="margin-bottom:12px">寺崎・谷口・田中 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>谷口「寺崎ってバンドやってるじゃん。バンドマンの彼氏ってどう？」→「なんで私に聞くの」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>イメージ：チャラい、お金ない、夢追い。寺崎「偏見すぎ」。でも否定しきれない。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>田中「私の世代だとバンドマンよりYouTuberの方がモテます」→ 寺崎「…時代か」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>寺崎「何やってる人かより、その人自身でしょ」→ 谷口「いいこと言う」→「バンドマンの受け売り」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：田中の「YouTuberの方がモテる」で寺崎の時代遅れ感。最後の「バンドマンの受け売り」で全部台無しになるオチの軽さ。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: DETAIL #19-20 -->
+    <div class="slide">
+        <div class="nav">12. DETAIL — #19 #20</div>
+        <div class="logo">わんてぃく FIRST ACT</div>
+        <div class="detail-grid" style="margin-top:50px">
+            <div>
+                <div class="badge">#19 — 昼カフェ</div>
+                <h3 style="font-size:16px;margin-bottom:4px">既読スルーと未読スルー、どっちがキツい？</h3>
+                <div class="meta" style="margin-bottom:12px">田中・吉川・中塚 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>田中「吉川さん、既読スルーと未読スルーどっちがキツいですか？」→「…それ聞く？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>吉川は既読派「読んだのに返さないって何？」。中塚は未読派「存在を認識されてない」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>田中「私、普通に忘れてるだけのこと多い。通知多すぎて」→ 吉川「俺のLINE埋もれてたの？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>中塚「気にしてるのは送った側だけ」→ 吉川「…もう少し気にしてくれ」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：田中の「通知多すぎて忘れてるだけ」が吉川に致命傷。「俺のLINE埋もれてた？」の切なさ。全員が経験あるSNS時代の話。</div>
+            </div>
+            <div>
+                <div class="badge">#20 — 夜バー</div>
+                <h3 style="font-size:16px;margin-bottom:4px">お客さんの悩み、自分より深刻だった件</h3>
+                <div class="meta" style="margin-bottom:12px">五十嵐・谷口・島田 ｜ 約2分</div>
+                <div class="scene">
+                    <div class="scene-label">起</div>
+                    <p>五十嵐「カウンターで色んな話聞くんだけど」→谷口「美容師もそう」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">承</div>
+                    <p>「上司がパワハラ」「彼女が浮気」「借金がある」。自分の悩みが小さく感じる。</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">転</div>
+                    <p>島田「他人の悩み聞いて『自分マシだな』って思うの、マウントの一種じゃない？」</p>
+                </div>
+                <div class="scene">
+                    <div class="scene-label">結</div>
+                    <p>五十嵐「じゃあバー閉めた方がいい？」→ 島田「閉めないでよ」</p>
+                </div>
+                <div
+                    style="margin-top:6px;font-size:10px;color:var(--gold);border-top:1px solid rgba(200,168,78,.2);padding-top:5px">
+                    🎯 ポイント：島田の「マウントの一種じゃない？」で笑いが消える瞬間。五十嵐の「バー閉めた方がいい？」で笑いに戻す。シリーズ最終回感ある深い話。</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
