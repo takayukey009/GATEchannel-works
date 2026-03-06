@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>千駄ヶ谷わんてぃく — 脚本</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1e1e1e;
+    --text: #e8e8e8;
+    --text-muted: #888;
+    --accent: #ff6b35;
+    --accent-dim: rgba(255,107,53,0.15);
+    --border: #2a2a2a;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ヘッダー */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.site-title {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+.site-title span {
+    color: var(--accent);
+}
+.site-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ナビ */
+.nav-bar {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 12px 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-bottom: 1px solid var(--border);
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-item {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    text-align: center;
+    min-width: 90px;
+}
+.nav-item:hover, .nav-item:active {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--text);
+}
+.nav-item small {
+    font-size: 10px;
+    display: block;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+}
+
+/* エピソード */
+.episode {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--border);
+}
+.ep-header {
+    padding: 32px 20px 24px;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+}
+.ep-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 6px;
+}
+.ep-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+.ep-theme {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+}
+.ep-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.meta-item {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* キャスト */
+.cast-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.cast-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--surface-2);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+}
+.role-name {
+    font-weight: 700;
+    color: var(--char-color, #fff);
+}
+.actor-name {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* 台本本文 */
+.script-body {
+    padding: 20px 16px 32px;
+}
+
+.line {
+    margin-bottom: 14px;
+}
+.line.togaki {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+    padding: 8px 0;
+}
+.line.dialogue {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+.char-name {
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 56px;
+    text-align: right;
+    padding-top: 1px;
+}
+.dialog-text {
+    font-size: 15px;
+    line-height: 1.75;
+    flex: 1;
+}
+
+/* フッター */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* スクロール復帰用の余白 */
+.episode:target .ep-header {
+    padding-top: 40px;
+}
+
+@media (min-width: 600px) {
+    .script-body {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 32px 24px 48px;
+    }
+    .ep-header {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 40px 24px 28px;
+    }
+    .ep-title {
+        font-size: 28px;
+    }
+    .dialog-text {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+    <div>
+        <div class="site-title">千駄ヶ谷<span>わんてぃく</span></div>
+        <div class="site-subtitle">脚本 全6話</div>
+    </div>
+</header>
+
+<nav class="nav-bar">
+<a href="#ep1" class="nav-item">第一話<br><small>別れ話のプロンプト</small></a><a href="#ep2" class="nav-item">第二話<br><small>解約ボタンはダンジョンの奥深く</small></a><a href="#ep3" class="nav-item">第三話<br><small>他人の幸せのパトロン</small></a><a href="#ep4" class="nav-item">第四話<br><small>PayPayの功罪</small></a><a href="#ep5" class="nav-item">第五話<br><small>メルカリの哲学</small></a><a href="#ep6" class="nav-item">第六話<br><small>元カレのストーリーズ</small></a>
+</nav>
+
+
+<section class="episode" id="ep1">
+    <div class="ep-header">
+        <div class="ep-number">第一話</div>
+        <h2 class="ep-title">別れ話のプロンプト</h2>
+        <p class="ep-theme">AIに別れ話を書かせたら、ビジネスメールになった件</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 カフェ・テーブル席（昼）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #4A90D9"><span class="role-name">タク</span><span class="actor-name">吉川 慶（29）</span></span><span class="cast-tag" style="--char-color: #E67E22"><span class="role-name">カイト</span><span class="actor-name">小久保 宏紀（21）</span></span><span class="cast-tag" style="--char-color: #2ECC71"><span class="role-name">リュウ</span><span class="actor-name">五十嵐 諒（33）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「タクさん、これ何て返したら一番ダメージ少ないっすかね？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「ん？　ハードル高いな。彼女からのLINE？　『どうして怒ってるかわかる？』……うわぁ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「一番踏んじゃいけない地雷だぞ、それ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「だから今、ChatGPTに『怒っている彼女への最適な返答を考えて。トーンは誠実かつ少し反省気味で』って打ってるとこっす」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「待て待て！　彼女への返信をAIに外注するなよ！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「いや、俺のポンコツな言葉より、人類の叡智を集結させたAIの方が絶対正解出しますって」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「でもAIの文章って、なんか冷たいっていうか『いかにも』感出ないか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「あ、出ました。『あなたの感情に寄り添えなかったことを深くお詫び申し上げます。今後の関係構築に向けて建設的な対話をーー』」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「ビジネスメールかよ！　絶対火に油注ぐわ！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「じゃあ、『少し天然な年下彼氏風に』を追加して再生成……と」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">（覗き込んで）「『ごめんね、僕の配慮が足りなかったよっ（汗）　怒ったお顔も可愛いけど、やっぱり笑顔が見たいな☆』……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……これ、お前の口から出るの？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「……これ行きましょう」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「行くの！？　命知らずかお前は」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「……いや待って、なんかすごい丁寧な文章来てない？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「あ、返信来ました」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「なんて？　別れよう？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「『その件につきましては、現在私の感情の整理がついておらず、適切な回答を控えさせていただきます。改めてこちらからご連絡いたします』」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「彼女もAI使ってんじゃねーか！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「もうAI同士で付き合えよ……」</span>
+</div>
+
+    </div>
+</section>
+
+<section class="episode" id="ep2">
+    <div class="ep-header">
+        <div class="ep-number">第二話</div>
+        <h2 class="ep-title">解約ボタンはダンジョンの奥深く</h2>
+        <p class="ep-theme">サブスク貧乏と「解約忘れ」の罠</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 カフェ・テーブル席（昼）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #9B59B6"><span class="role-name">ソウタ</span><span class="actor-name">中塚 智（27）</span></span><span class="cast-tag" style="--char-color: #E74C3C"><span class="role-name">カナデ</span><span class="actor-name">島田 和奏（26）</span></span><span class="cast-tag" style="--char-color: #1ABC9C"><span class="role-name">セトカ</span><span class="actor-name">寺崎 ひな（22）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「俺、もしかして……息してるだけで月1万くらい削られてるかもしれない」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「なに、また変な宗教？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「サブスクだよ。今日カードの明細見たら、聞いたこともない海外のドキュメンタリー特化サイトから毎月1500円引かれてて」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「うわ、出た。無料トライアル解約忘れの刑」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「そう！　最初の1ヶ月無料だから登録して、すぐ解約しようと思ってたのに……もう2年経ってた」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「2年！？　3万6千円じゃん。何が見放題だったのよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「わかんない……一回も見てないから……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「私なんて、スケジュールに『アマプラ解約』って入れてたのに、そのカレンダーアプリを気付かず有料版にしてて毎月課金されてた」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「ミイラ取りがミイラになってるじゃん」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「解約のボタンってさ、なんであんなにダンジョンみたいに隠されてるの？　引き止めがハンパない」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「元カレかよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「わかる。あれ、最後の方ちょっと情が湧くよね。『こんなに私のこと引き止めてくれるの、お前だけだよ……』って」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「あのさ、登録した瞬間に解約手続きすればいいんだよ。そうすれば1ヶ月はそのまま無料で使えるから」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「……え、天才？　なんでそれもっと早く教えてくれなかったの？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「教えようと思ったけど、ソウタ君いつも『俺、このサービス一生ついていくわ』みたいな熱い顔で登録するじゃん」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「で、そのドキュメンタリーサイト、解約できたの？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #9B59B6">ソウタ</span>
+    <span class="dialog-text">「パスワード忘れてログインすらできないから、明日カード会社に電話してカードごと止める」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「強行突破すぎでしょ」</span>
+</div>
+
+    </div>
+</section>
+
+<section class="episode" id="ep3">
+    <div class="ep-header">
+        <div class="ep-number">第三話</div>
+        <h2 class="ep-title">他人の幸せのパトロン</h2>
+        <p class="ep-theme">結婚式のご祝儀3万円、高すぎ問題</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 カフェ・テーブル席（昼）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #4A90D9"><span class="role-name">タク</span><span class="actor-name">吉川 慶（29）</span></span><span class="cast-tag" style="--char-color: #FF69B4"><span class="role-name">ユイ</span><span class="actor-name">田中 希和（18）</span></span><span class="cast-tag" style="--char-color: #2ECC71"><span class="role-name">リュウ</span><span class="actor-name">五十嵐 諒（33）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……リュウさん、3万って高くないですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「急にどうした。……あぁ、また後輩の結婚式か」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「今年4回目ですよ。12万。プレステ5買えますって」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「俺なんかお前、乾杯の挨拶頼まれるからプラスαで包むんだぞ。もうコントローラー二つとソフトもセットで買えるわ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「そもそもなんで『割れない数』で3万なんですかね。1万じゃダメなんですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「バカお前、1万じゃ飯代と引き出物であっちが赤字になるだろ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #666">ユイ</div>
+            <div class="serif-togaki">（スマホをいじりながら）</span>
+    <span class="dialog-text">「……え、結婚式って、行く側がお金払うんですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……は？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「いや、お祝いに『呼ばれてる』んですよね？　なんでチケット代みたいに3万も取るんですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「チケット代って……まあ、そうだけど。そういう文化だから」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「クラファンみたいですね。『私たちの幸せな1日を応援してください！　リターンはフランス料理のフルコースです！』みたいな」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #666">タク</div>
+            <div class="serif-togaki">（ハッとして）</span>
+    <span class="dialog-text">「……たしかに。俺、他人の幸せのパトロンやってんだ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #2ECC71">リュウ</span>
+    <span class="dialog-text">「パトロンて。……でもまあ、祝儀袋に名前書くとき、ちょっと手震えるよなあ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「あの『参萬圓』って旧字体で書く時間、マジでなんの修行ですかね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「PayPayで送金じゃダメなんですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「それは……なんか、味気ないじゃん？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「3万払って、謎の達成感得てるだけじゃないですか」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……お釣り出ませんか？」</span>
+</div>
+
+    </div>
+</section>
+
+<section class="episode" id="ep4">
+    <div class="ep-header">
+        <div class="ep-number">第四話</div>
+        <h2 class="ep-title">PayPayの功罪</h2>
+        <p class="ep-theme">奢りたいのにPayPayが割り勘ボタン光らせてくる</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 バー・テーブル席（夜）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #E67E22"><span class="role-name">カイト</span><span class="actor-name">小久保 宏紀（21）</span></span><span class="cast-tag" style="--char-color: #4A90D9"><span class="role-name">タク</span><span class="actor-name">吉川 慶（29）</span></span><span class="cast-tag" style="--char-color: #F39C12"><span class="role-name">アヤナ</span><span class="actor-name">谷口 彩菜（27）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「タクさん、今日って……奢ってくれるんすか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……なんでいきなりそうなるの」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「いや、先輩が後輩に飯奢るのって、まだ生きてる文化っすか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「生きてる人と死んでる人がいるね、それ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「俺は……ケースバイケースかな」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「出た、一番ズルい回答」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「俺の先輩で、毎回『俺が出すよ』って言うくせに、PayPayの割り勘リクエスト飛ばしてくる人いるんすよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「それ、どっちが本心なの」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「割り勘リクエストのほうっす。口では奢るって言ったのに、夜中の2時に通知来て。『1,847円のリクエストが届きました』って」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「1円単位！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「1,847円って、たぶん税込みの端数まで割ってるね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「でもさ、逆に考えると、PayPayあるから奢り文化が壊れたとも言えるんすよね。昔は現金だったから、お釣りめんどいし出すよって自然だったじゃないすか」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「確かに。小銭ジャラジャラ計算するの面倒だから奢ってた人、結構いたと思う」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「つまり、奢りって善意じゃなくて面倒の放棄だったってこと？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「PayPayが本性を暴いたんすよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「私はさ、奢ってもらったら気持ちが嬉しいけど、次に会うとき『この前出したからさ……』って言われるのが一番イヤ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「わかる。それ、奢りじゃなくて貸しだよね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「じゃあ最初から割り勘でよくないすか？　お互い気持ちいいし」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……でもデートで割り勘は？」</span>
+</div>
+<div class="line togaki">（沈黙）</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……それは」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E67E22">カイト</span>
+    <span class="dialog-text">「……俺、デートしたことないんで発言権ないっす」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「タクさんは？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #4A90D9">タク</span>
+    <span class="dialog-text">「……同じく」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「この話、終わりだね」</span>
+</div>
+
+    </div>
+</section>
+
+<section class="episode" id="ep5">
+    <div class="ep-header">
+        <div class="ep-number">第五話</div>
+        <h2 class="ep-title">メルカリの哲学</h2>
+        <p class="ep-theme">他人の使用済みワイヤレスイヤホン、買える？</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 カフェ・テーブル席（昼）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #F39C12"><span class="role-name">アヤナ</span><span class="actor-name">谷口 彩菜（27）</span></span><span class="cast-tag" style="--char-color: #1ABC9C"><span class="role-name">セトカ</span><span class="actor-name">寺崎 ひな（22）</span></span><span class="cast-tag" style="--char-color: #E74C3C"><span class="role-name">カナデ</span><span class="actor-name">島田 和奏（26）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「私、メルカリでギター買ったんだけど」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「ギター？　中古で？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「3万円。楽器屋なら12万するやつ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「すごーい。でもさ、前の人がどう使ってたかわからなくない？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「別に気にならないけど。綺麗な音が出ればいいし。」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「私はフリマアプリで服はよく買うよ。ブランドもの安く買えるし、サステナブルだし」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「えー、服は無理かも。知らない人が着てたやつって思うと……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「洗えばよくない？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「洗っても気持ちの問題じゃない？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「じゃあ古着屋は？　あれも誰かが着てたやつだよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「古着屋は……なんかおしゃれだからセーフ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「それ、ダブスタじゃん」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「ダブスタじゃないよ！　古着屋はキュレーションされてるし、お店が洗って管理してるじゃん。メルカリは個人だから……衛生面が……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「じゃあ質問。メルカリでワイヤレスイヤホン。買える？」</span>
+</div>
+<div class="line togaki">（沈黙）</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「余裕」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……無理。耳に入れるものは絶対無理」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「じゃあ本は？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「本はいいよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「本もページめくった指、どこ触ったかわかんないよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……やめて」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「要するにさ、中古品って『気にならないライン』が人によって全然違うんだよね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「私は基本なんでもいける。楽器、服、靴、家電。ライブのチケットも二次流通で買うし」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「え、下着は？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「……それは無理」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「結局あるんじゃん、ライン」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「……当たり前でしょ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「つまりね、メルカリは便利だけど、全員が全員使えるわけじゃないってこと」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「でもさ、10年後にはもっと中古が普通になるんじゃない？　新品を買うことが贅沢になる時代が来るかも」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「もう来てるよ。私の持ち物、半分以上中古だもん」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……逆にすごいね、それ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「エコでしょ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「エコっていうか、金がないだけでしょ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #1ABC9C">セトカ</span>
+    <span class="dialog-text">「……それもある」</span>
+</div>
+
+    </div>
+</section>
+
+<section class="episode" id="ep6">
+    <div class="ep-header">
+        <div class="ep-number">第六話</div>
+        <h2 class="ep-title">元カレのストーリーズ</h2>
+        <p class="ep-theme">元カレの新しい彼女のインスタ、なんで見ちゃうんだろう</p>
+        <div class="ep-meta">
+            <span class="meta-item">📍 カフェ・テーブル席（昼）</span>
+            <span class="meta-item">⏱ 約2分</span>
+        </div>
+        <div class="cast-list"><span class="cast-tag" style="--char-color: #E74C3C"><span class="role-name">カナデ</span><span class="actor-name">島田 和奏（26）</span></span><span class="cast-tag" style="--char-color: #F39C12"><span class="role-name">アヤナ</span><span class="actor-name">谷口 彩菜（27）</span></span><span class="cast-tag" style="--char-color: #FF69B4"><span class="role-name">ユイ</span><span class="actor-name">田中 希和（18）</span></span></div>
+    </div>
+    <div class="script-body">
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……また見ちゃった」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「何を」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「元カレのインスタ。ストーリーズで新しい彼女とカフェ行ってた。しかも私が教えた店」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「うわーー」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「ブロックすればいいじゃないですか」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「それは……できないの」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「なんでですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「ブロックしたら、気にしてるって思われるじゃん」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「もう十分気にしてるけどね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「気にしてるのは事実だけど、気にしてることを相手に知られたくないの！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「……めんどくさいですね、大人って」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「私も元カレのSNSたまに見るよ。もう未練はないんだけど、なんか……定期チェックみたいな」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「そう！　それ！　別に復縁したいわけじゃないの。ただ、向こうが幸せかどうか確認したいだけで」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「それ、『不幸せであってほしい』ってことですか？」</span>
+</div>
+<div class="line togaki">（沈黙）</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……ち、違うよ？　幸せでいてほしいよ？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「カナデさんも黙ってますけど」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「……半々かな」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「正直！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「私はまだ付き合ったことないんでよくわかんないですけど、SNS見て辛くなるなら見なきゃいいだけじゃないですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「それができたら苦労しないのよ……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「ユイちゃんさ、ポテチの袋開けて一口だけ食べてやめられる？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「無理ですね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「それと同じ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「元カレのSNSってポテチなんですか」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「しかも無限ポテチね。見れば見るほど新しいのが出てくる」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「最悪なのはさ、相手の新しい彼女が可愛いときだよね」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「それ今日の私じゃん。しかもその子のインスタまで辿っちゃって、投稿全部見て、フォロワー数確認して……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「完全にストーカーじゃないですか」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「デジタルストーカーね！　物理的には一歩も動いてないから！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「指だけで完結する現代のストーカー」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「……あの、一つ聞いていいですか？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「なに？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「もしかして今もその子のストーリーズ、足跡ついてません？」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「……ついてるね、絶対」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「……サブ垢で見た」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「用意周到！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「一番やっちゃいけないやつだよ、それ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「わかってるの！　わかってるんだけど！」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「大人ってめんどくさいなぁ……」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #F39C12">アヤナ</span>
+    <span class="dialog-text">「ユイちゃんもいつかわかるよ」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #FF69B4">ユイ</span>
+    <span class="dialog-text">「わかりたくないです」</span>
+</div>
+<div class="line dialogue">
+    <span class="char-name" style="color: #E74C3C">カナデ</span>
+    <span class="dialog-text">「わかるよ。絶対わかる日が来る」</span>
+</div>
+
+    </div>
+</section>
+
+
+<footer class="site-footer">
+    千駄ヶ谷わんてぃく — 脚本案（第一稿）<br>
+    © 2026 GATE channel & works
+</footer>
+
+<script>
+// スムーズスクロール
+document.querySelectorAll('.nav-item').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+            const headerH = document.querySelector('.site-header').offsetHeight;
+            const y = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    });
+});
+</script>
+</body>
+</html>
